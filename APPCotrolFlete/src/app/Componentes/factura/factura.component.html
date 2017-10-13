@@ -1,0 +1,66 @@
+<div class=" card card-container row">
+        <div class="col-xs-12 col-sm-10 col-sm-8 col-sm-offset-1 col-md-offset 2">
+          <h2 class="Titulo"> Factura</h2>
+          <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">     
+                <label class="simple" for="nombre">Nombre</label>           
+                <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.nombre.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.nombre.invalid && facturaForm.controls.nombre.touched"></i>
+                <input type="text" formControlName="nombre" id="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                <p class="alert alert-danger"  *ngIf="facturaForm.controls.nombre.invalid && facturaForm.controls.nombre.touched" >El campo es obligatorio</p>
+            </div>
+            <div class="form-group">
+                    <label class="simple" for="email">Email</label>  
+                    <input type="email" formControlName="email" id="email" class="form-control" placeholder="Email" >
+                    
+                </div>
+            <div class="form-group">
+                    <label class="simple" for="rfc">RFC</label>  
+                <input type="text" formControlName="rfc" id="rfc" class="form-control" placeholder="RFC" >
+            </div>
+            <div class="form-group">
+                    <label class="simple" for="direccion">Direccion</label>  
+                <input type="text" formControlName="direccion" id="direccion" class="form-control" placeholder="Direccion" >
+            </div>
+            <div class="form-group">
+                    <label class="simple" for="cp">Codigo postal</label>  
+                <input type="number" formControlName="cp" id="cp" class="form-control" placeholder="Codigo postal" >
+            </div>
+            <div class="form-group">
+                    <label   for="tipo">Tipo de IVA</label>
+                    <select class="form-control" formControlName="tipo" id="tipo">
+                            <option value="">Seleccione...</option>
+                            <option value="0">0%</option>
+                            <option value="0.10">10%</option>
+                            <option value="0.16">16%</option>
+                    </select>
+              
+            </div>
+            <div class="form-group">
+                    <label class="simple" for="base">IVA</label>  
+                    <input type="number" formControlName="base" id="base" class="form-control" placeholder="IVA" >
+            </div>
+          
+
+            <div class="form-group">
+                    <label class="simple" for="iva">Importe IVA</label>  
+                    <input type="number" formControlName="iva" id="iva" [(ngModel)]="facturaForm.value.iva" class="form-control" disabled >
+            </div>
+            <div class="form-group">
+                    <label class="simple" for="total">Total factura iva incluido</label>  
+                    <input type="number" formControlName="total" id="total"  [(ngModel)]="facturaForm.value.total" class="form-control" >
+            </div>
+
+
+            <button class="btn btn-primary" type="submit" [disabled]="!facturaForm.valid">aceptar</button>
+            <p class="alert alert-danger" *ngIf="!facturaForm.valid" >Porfavor acomplete todos los campos</p>
+            <pre>Valor del formulario:{{facturaForm.value | json}}</pre>
+            <pre>status del formulario:{{facturaForm.status | json}}</pre>
+            <hr>
+            <pre>{{factura | json}}</pre>
+          </form>
+      
+        </div>
+      
+      
+      </div>

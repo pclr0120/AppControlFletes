@@ -1,0 +1,20 @@
+
+    <nav class="navbar navbar-default" >
+        <div class="contrainer-fluid">
+            <div class="navbar-header" >
+                    <a [routerLink]="['/inicio']" class="navbar-brand"><span class="glyphicon glyphicon-star"></span>{{title}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a [routerLink]="['/inicio']"><span class="glyphicon glyphicon-home"></span>Inicio</a></li>
+                <li><a [routerLink]="['/factura']">factura</a></li>
+                <li><a [routerLink]="['/home']">Empleados</a></li>
+                <li><a [routerLink]="['/home']">Vehiculos</a></li>
+                <li><a [routerLink]="['/home']"><span class="glyphicon glyphicon-user"></span>Usuarios</a></li>
+
+            </ul>
+          
+            <app-munu-usuario></app-munu-usuario>
+           
+        </div>
+    </nav>
+ <hr>

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.item-orange{
+
+    border-left: solid;
+    border-width: 5px;
+    border-left-color: orange;
+    padding-left: 10px;
+}
+
+body {
+    background-color: rgba(1, 8, 3, 0.59);
+}
