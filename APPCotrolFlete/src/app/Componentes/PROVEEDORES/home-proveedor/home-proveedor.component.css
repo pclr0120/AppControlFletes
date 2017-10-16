@@ -1,0 +1,41 @@
+.navigation.col-lg-12{
+    
+        margin: 10px;
+       
+    }
+    
+    .jumbotron{
+     
+    
+        margin-top: 100px;
+        color: rgb(243, 231, 231);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow:  2px 2px 5px rgb(245, 229, 12);
+        background: black;
+    }
+    
+    
+    .Titulo{
+        
+            font-size: 40px;
+            color: rgb(240, 239, 239);
+            text-decoration-color: #B81A1A;
+        }
+     .USER{
+            
+                font-size: 25px;
+                color: rgb(185, 13, 13);
+                text-decoration-color: #B81A1A;
+            }
+    
+            .profile-img
+            {
+                width: 96px;
+                height: 96px;
+                margin: 0 auto 10px;
+                display: block;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+            }

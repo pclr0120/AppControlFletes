@@ -1,0 +1,125 @@
+<div class="  card card-container row">
+        <app-control-viajes-home></app-control-viajes-home>
+<div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+<h2 class="Titulo">REGITRAR VIAJE</h2>
+<form [formGroup]="ViajeForm" >
+    <p class="alert alert-danger" *ngIf="!ViajeForm.valid" >Por favor acomplete todos los campos</p>
+  
+<div class="form-group">     
+ 
+        <label class="simple"  for="Cliente">Cliente </label>
+        <select class="form-control" formControlName="Cliente" id="Cliente">
+                <option value="">Seleccione...</option>
+                <option value="0">Pablo cesar leyva ramirez</option>
+                <option value="0.10">Juan luis torres</option>
+                <option value="0.16">Luis Rivera Parra</option>
+        </select>
+        
+  
+
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="ViajeForm.controls.Cliente.invalid && ViajeForm.controls.Cliente.touched"></i>
+    <p class="alert alert-danger"  *ngIf="ViajeForm.controls.Cliente.invalid && ViajeForm.controls.Cliente.touched" >El campo es obligatorio</p>
+</div>
+<div class="form-group">
+        <label class="simple"  for="Asignacion">Asinacion </label>
+        <select class="form-control" formControlName="Asignacion" id="Asignacion">
+                <option value="">Seleccione el chofer...</option>
+                <option value="0">Karmi Gonzales</option>
+                <option value="0.10">Juan luis torres</option>
+                <option value="0.16">Luis Rivera Parra</option>
+        </select>
+    </div>
+<div class="form-group">
+        <label class="simple" for="Mercancia">Mercancia</label>  
+    <input type="text" formControlName="Mercancia" id="Mercancia" class="form-control" placeholder="Mercancia" >
+</div>
+<div class="form-group">     
+                
+                       <label  class="simple" for="Tipo">Tipo </label>
+                       <select class="form-control" formControlName="Tipo" id="Tipo">
+                               <option value="">Seleccione ...</option>
+                               <option value="0">Normal</option>
+                               <option value="0.10">A Temperatura</option>
+                               <option value="0.16">Fragil</option>
+                       </select>
+                 
+              
+               </div>
+<hr>
+
+<div class="form-group">
+                <label class="simple" for="Origen">Origen</label>  
+                <input type="text" formControlName="Origen" id="Origen" class="form-control" placeholder="Ingrese el Origen(se mostrar en el mapa para ser mas exacto)" >
+    <label class="simple" for="Destino">Destino</label>  
+<input type="text" formControlName="Destino" id="Destino" class="form-control" placeholder="Ingrese el destino(se mostrar en el mapa para ser mas exacto)" >
+<hr>
+<app-maps></app-maps>
+</div>
+
+<hr>
+<div class="form-group">
+            <label class="simple" for="Costo">Costo</label>  
+        <input type="number" formControlName="Costo" id="Costo" class="form-control" placeholder="Costo" >
+</div> 
+<div class="form-group">     
+    
+           <label  class="simple" for="EstadoViaje">EstadoViaje </label>
+           <select class="form-control" formControlName="EstadoViaje" id="EstadoViaje">
+                   <option value="">Seleccione...</option>
+                   <option value="0">Documentado</option>
+                   <option value="0.10">En Proceso</option>
+                   <option value="0.16">En Transito</option>
+           </select>
+     
+  
+   </div>
+  
+
+     
+<hr>
+
+<!-- <div class="form-group simple">
+        <label   for="Cliente">Cliente de IVA</label>
+        <select class="form-control" formControlName="Cliente" id="Cliente">
+                <option value="">Seleccione...</option>
+                <option value="0">0%</option>
+                <option value="0.10">10%</option>
+                <option value="0.16">16%</option>
+        </select>
+  
+</div>
+
+            
+
+<div class="form-group">
+        <label class="simple" for="base">IVA</label>  
+        <input type="number" formControlName="base" id="base" class="form-control" placeholder="IVA" >
+</div>
+
+
+<div class="form-group">
+        <label class="simple" for="iva">Importe IVA</label>  
+        <input type="number" formControlName="iva" id="iva" [(ngModel)]="ViajeForm.value.iva" class="form-control" disabled >
+</div>
+<div class="form-group">
+        <label class="simple" for="total">Total factura iva incluido</label>  
+        <input type="number" formControlName="total" id="total"  [(ngModel)]="ViajeForm.value.total" class="form-control" > 
+</div>
+-->
+<div>
+            
+            <button class="btn btn-primary  pull-right" type="submit" [disabled]="!ViajeForm.valid">Guardar</button>
+            
+</div>
+
+</form>
+
+
+<!-- <pre>Valor del formulario:{{ViajeForm.value | json}}</pre>
+<pre>status del formulario:{{ViajeForm.status | json}}</pre>
+<hr>
+<pre>{{factura | json}}</pre> -->
+</div>
+
+
+</div>

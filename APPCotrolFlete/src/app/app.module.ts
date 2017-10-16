@@ -26,6 +26,14 @@ import { FacturaHomeComponent } from './Componentes/factura-home/factura-home.co
 import { VehiculosComponent } from './Componentes/vehiculos/vehiculos.component';
 import { VehiculoComponent } from './Modulos/vehiculo/vehiculo.component';
 import { VehiculosHOMEComponent } from './Componentes/vehiculos-home/vehiculos-home.component';
+import { EmpleadoComponent } from './Componentes/empleados/empleado/empleado.component';
+import { EmpleadoHomeComponent } from './Componentes/Empleados/empleado-home/empleado-home.component';
+import { ControlViajesComponent } from './Componentes/viajes/control-viajes/control-viajes.component';
+import { ControlViajesHomeComponent } from './Componentes/Viajes/control-viajes-home/control-viajes-home.component';
+import { ViajeComponent } from './Modulos/viaje/viaje.component';
+import { MapsComponent } from './Componentes/Viajes/maps/maps.component';
+import { ViajeConsultarComponent } from './Componentes/Viajes/viaje-consultar/viaje-consultar.component';
+import { MenuBotonesComponent } from './Componentes/menu-botones/menu-botones.component';
 
 
 
@@ -33,7 +41,7 @@ import { VehiculosHOMEComponent } from './Componentes/vehiculos-home/vehiculos-h
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, MenuPrincipalComponent, OlvideMiPasswordComponent, MunuUsuarioComponent, LogOutComponent, MenuControlComponent, ProveedoresComponent, AddProveedorComponent, HomeProveedorComponent, FacturaDetalleComponent, FacturacionComponent, FacturaHomeComponent, VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent
+    AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, MenuPrincipalComponent, OlvideMiPasswordComponent, MunuUsuarioComponent, LogOutComponent, MenuControlComponent, ProveedoresComponent, AddProveedorComponent, HomeProveedorComponent, FacturaDetalleComponent, FacturacionComponent, FacturaHomeComponent, VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent, MenuBotonesComponent
   ],
   imports: [
     BrowserModule , FormsModule,routing,ReactiveFormsModule

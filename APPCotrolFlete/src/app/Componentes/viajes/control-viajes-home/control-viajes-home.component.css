@@ -8,18 +8,18 @@
      
     
         margin-top: 100px;
-        color: rgb(243, 231, 231);
+        color: rgb(243, 239, 239);
         padding: 20px;
         border-radius: 5px;
         box-shadow:  2px 2px 5px rgb(245, 229, 12);
-        background: black;
+        background: rgba(11, 34, 207, 0);
     }
     
     
     .Titulo{
         
             font-size: 40px;
-            color: rgb(240, 239, 239);
+            color: rgb(248, 242, 242);
             text-decoration-color: #B81A1A;
         }
      .USER{

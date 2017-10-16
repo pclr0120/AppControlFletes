@@ -1,8 +1,8 @@
 body{
-    background: #8999A8;
+    background: rgb(15, 20, 26);
 }
 .navbar, .dropdown-menu{
-background:rgba(255,255,255,0.25);
+background:rgba(243, 9, 9, 0.733);
 border: none;
 
 }
@@ -15,7 +15,7 @@ border: none;
   background: none;
 }
 .navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
- color: #fff;
+ color: rgb(20, 13, 13);
 }
 .dropdown-menu{
       -webkit-box-shadow: none;
@@ -48,6 +48,6 @@ border: none;
 }
 
 .navbar-toggle .icon-bar{
-    color: #fff;
-    background: #fff;
+    color: rgb(0, 0, 0);
+    background: rgb(17, 13, 13);
 }

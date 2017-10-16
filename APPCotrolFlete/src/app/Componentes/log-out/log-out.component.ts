@@ -17,6 +17,8 @@ export class LogOutComponent implements OnInit {
    // localStorage.clear();
     localStorage.removeItem('user');
     localStorage.removeItem('pass');
+    localStorage.clear();
+    localStorage.setItem('login','false');
     this.router.navigate(['login']);
   }
 

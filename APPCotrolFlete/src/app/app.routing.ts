@@ -13,6 +13,12 @@ import { HomeProveedorComponent } from './Componentes/PROVEEDORES/home-proveedor
 import { FacturacionComponent } from './Modulos/facturacion/facturacion.component';
 import { FacturaHomeComponent } from './Componentes/factura-home/factura-home.component';
 import { VehiculoComponent } from './Modulos/vehiculo/vehiculo.component';
+import { EmpleadoComponent } from './Componentes/empleados/empleado/empleado.component';
+import { EmpleadoHomeComponent } from './Componentes/Empleados/empleado-home/empleado-home.component';
+import { ViajeComponent } from './Modulos/viaje/viaje.component';
+import { ViajeConsultarComponent } from './Componentes/Viajes/viaje-consultar/viaje-consultar.component';
+
+
 const appRoutes:Routes=[
     {path:'',component:InicioComponent},
     {path:'',redirectTo:'login',pathMatch:'full'},
@@ -26,7 +32,12 @@ const appRoutes:Routes=[
     {path:'HomeProveedor',component:HomeProveedorComponent},
     {path:'OlvideMiPassword',component:OlvideMiPasswordComponent},
     {path:'LogOut',component:LogOutComponent},
-    {path:'Vehiculos',component:VehiculoComponent}
+    {path:'Vehiculos',component:VehiculoComponent},
+    {path:'Empleados',component:EmpleadoHomeComponent},
+    {path:'EmpleadosR',component:EmpleadoComponent},
+    {path:'Viajes',component:ViajeComponent}
+    ,
+    {path:'ViajesC',component:ViajeConsultarComponent}
     
 
 ];

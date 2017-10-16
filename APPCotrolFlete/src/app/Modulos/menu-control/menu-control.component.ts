@@ -16,41 +16,41 @@ MenuControlVisible:boolean=false;
   R:any;
   
   ngOnInit() {
-    this.Registrar="No hay Opciones..";
-    this.R='proveedor';
+    // this.Registrar="No hay Opciones..";
+    // this.R='proveedor';
   }
   ngDoCheck(){
   
     
      
-      if(localStorage.getItem('login')=='true'){
+      // if(localStorage.getItem('login')=='true'){
      
-       this.MenuControlVisible=true;
-       this.Titulo=localStorage.getItem('T');
-        this.Registrar=localStorage.getItem('R');
-        this.Consultar=localStorage.getItem('C');
-        this.Modificar=localStorage.getItem('M');
+      //  this.MenuControlVisible=true;
+      //  this.Titulo=localStorage.getItem('T');
+      //   this.Registrar=localStorage.getItem('R');
+      //   this.Consultar=localStorage.getItem('C');
+      //   this.Modificar=localStorage.getItem('M');
 
-       if (localStorage.getItem('T')==''){
-        localStorage.setItem('T','No hay opciones');
-        localStorage.setItem('R','');
-        localStorage.setItem('C','');
-        localStorage.setItem('M','');
-       }
+      //  if (localStorage.getItem('T')==''){
+      //   localStorage.setItem('T','No hay opciones');
+      //   localStorage.setItem('R','');
+      //   localStorage.setItem('C','');
+      //   localStorage.setItem('M','');
+      //  }
           
       
-      }else
-          this.MenuControlVisible=false;
+      // }else
+      //     this.MenuControlVisible=false;
 
     
  
     
      }
-     seguimiento(pagina:string){
-        console.log('holiss');
+    //  seguimiento(pagina:string){
+    //     console.log('holiss');
         
-        if(pagina=='R')
-        this.router.navigate(['/facturaR']);
+    //     if(pagina=='R')
+    //     this.router.navigate(['/facturaR']);
 
-     }
+    //  }
 }

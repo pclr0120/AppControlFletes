@@ -1,0 +1,46 @@
+<div class="  card card-container row">
+  
+<div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+<h2 class="Titulo">CONSULTA DE  VIAJES</h2>
+<form [formGroup]="ViajeForm" >
+
+
+
+<hr>
+
+<div class="form-group">
+            <label class="simple" for="FolioViaje">FolioViaje</label>  
+            <input type="text" formControlName="FolioViaje" id="FolioViaje" class="form-control" placeholder="Ingrese el FolioViaje(se mostrar en el mapa para ser mas exacto)"  >
+            <button class="btn btn-primary  pull-right" type="submit" [disabled]="!ViajeForm.valid">Obtener Informacion</button>
+       
+<div *ngIf="ViajeForm.valid">
+    
+    <button class="btn btn-primary btn-lg active  pull-right" type="submit" [disabled]="!ViajeForm.valid">CONDUCTOR</button>
+    
+</div>
+
+<hr>
+<app-maps></app-maps>
+</div>
+
+
+
+
+
+ 
+<hr>
+
+
+
+
+</form>
+
+
+<!-- <pre>Valor del formulario:{{ViajeForm.value | json}}</pre>
+<pre>status del formulario:{{ViajeForm.status | json}}</pre>
+<hr>
+<pre>{{factura | json}}</pre> -->
+</div>
+
+
+</div>

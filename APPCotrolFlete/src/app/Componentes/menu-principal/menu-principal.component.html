@@ -2,23 +2,50 @@
 
  <!-- Brand and toggle get grouped for better mobile display -->
  <div class="navbar-header">
-        <div class="navbar-header" >
+        <div  class="navbar-header" >
                 <a [routerLink]="['/inicio']" class="navbar-brand"><span class="glyphicon glyphicon-star"></span>{{title}}</a>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" *ngIf="Menu">
                 <li><a [routerLink]="['/inicio']"><span class="glyphicon glyphicon-home"></span>Inicio</a></li>
-                <li><a [routerLink]="['/facturaHOME']">factura</a></li>
-                <li><a [routerLink]="['/home']">Empleados</a></li>
-                <li><a [routerLink]="['/Vehiculos']">Vehiculos</a></li>
-                <li><a [routerLink]="['/proveedor']">Proveedores</a></li>
-                <li><a [routerLink]="['/home']"><span class="glyphicon glyphicon-user"></span>Usuarios</a></li>
-                <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
+              
+                <li class=" dropdown"><a [routerLink]="['/facturaHOME']" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturacion <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">View Staff</a></li>
-                            <li><a href="#">Add New</a></li>
-                            <li><a href="#">Bulk Upload</a></li>
+                            <li><a [routerLink]="['/facturaR']">Registrar</a></li>
+                            <li><a href="#">Consultar</a></li>
+                            <li><a href="#">Modificar</a></li>
                         </ul>
                     </li>
+                    <li class=" dropdown"><a [routerLink]="['/Empleados']" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                                        <li><a [routerLink]="['/EmpleadosR']">Registrar</a></li>
+                                        <li><a href="#">Consultar</a></li>
+                                        <li><a href="#">Modificar</a></li>
+                        </ul>
+                    </li>
+         
+                <li class=" dropdown"><a [routerLink]="['/Vehiculos']" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehiculos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                                        <li><a [routerLink]="['/proveedor']">Registrar</a></li>
+                                        <li><a href="#">Consultar</a></li>
+                                        <li><a href="#">Modificar</a></li>
+                        </ul>
+                    </li>
+                
+                <li class=" dropdown"><a [routerLink]="['/HomeProveedor']" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Provedores <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                                        <li><a >Registrar</a></li>
+                                        <li><a [routerLink]="['/proveedor']">Consultar</a></li>
+                                        <li><a href="#">Modificar</a></li>
+                        </ul>
+                    </li>
+                    <li class=" dropdown"><a [routerLink]="['/Viajes']" class="dropdown-toggle active glyphicon glyphicon-road" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Viajes <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                                        <li><a >Registrar</a></li>
+                                        <li><a [routerLink]="['/ViajesC']">Consultar</a></li>
+                                        <li><a href="#">Modificar</a></li>
+                        </ul>
+                    </li>
+
          </ul>
    
          

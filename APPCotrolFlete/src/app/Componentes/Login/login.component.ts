@@ -38,6 +38,7 @@ export class LoginComponent {
         localStorage.setItem('pass',JSON.stringify(this.login.Password));
         }
                   
+   
 
   }
   ngDoCheck(){
@@ -45,6 +46,8 @@ export class LoginComponent {
         if(this.login.Password!="123"){
 
             localStorage.setItem('login','false');
+            localStorage.clear();
+            
            }
   }           
 }

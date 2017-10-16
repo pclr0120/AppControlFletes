@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-proveedor.component.css']
 })
 export class HomeProveedorComponent implements OnInit {
-
-  constructor() { }
+  hoy:any=new Date;
+  constructor() { 
+  
+  }
 
   ngOnInit() {
   }
