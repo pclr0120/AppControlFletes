@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
-  constructor() { }
+titulo:string;
+user:string ;
+hoy:any = new Date();
+  constructor() { 
+    this.user="PABLO CESAR LEYVA RAMIREZ";
+    this.titulo="BIENVENIDO";
+    localStorage.setItem('T','');
+  }
 
   ngOnInit() {
+   
   }
 
 }

@@ -4,14 +4,18 @@
 /*
  * General styles
  */
+ margen{
+    margin-top: 100px;
+ }
  body, html {
-    height: 100%;
+     
+    height: 10%;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
 }
 .simple{
-    
-        font-size: 22px;
+
+        font-size: 12px;
         color: #F7F7F7;
         text-decoration-color: #B81A1A;
     }
@@ -23,8 +27,8 @@
 }
 
 .card-container.card {
-    max-width: 900px;
-    padding: 10px 10px;
+    max-width: 800px;
+    padding: 10px 2px;
 }
 
 .btn {
@@ -40,18 +44,20 @@
  * Card component
  */
 .card {
+    
     background-color: rgba(3, 5, 2, 0.84);
     /* just in case there no content*/
-    padding: 20px 25px 30px;
-    margin: 0 auto 25px;
+    padding: 2px 2px 3px;
+    margin: 0 auto 2px;
     margin-top: 50px;
+    padding-left: 0px;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border-radius: 20px;
+    border-radius: 2px;
     -moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 5px 10px rgb(3, 1, 1);
+    box-shadow: 0px 5px 2px rgb(3, 1, 1);
 }
 
 .profile-img-card {

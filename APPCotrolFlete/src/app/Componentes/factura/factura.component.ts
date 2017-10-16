@@ -22,10 +22,13 @@ total:any=0;
       rfc:['',[Validators.required,Validators.maxLength(13)]],
       direccion:['',[Validators.required,Validators.maxLength(30)]],
       cp:['',[Validators.required,Validators.maxLength(5)]],
-      base:['',Validators.required],
-      tipo:['',Validators.required],
-      iva:this.iva,
-      total:this.total
+     // proveedor:['',Validators.required],
+      fecha:['',Validators.required],
+      concepto:['',Validators.required]
+      // base:['',Validators.required],
+      // tipo:['',Validators.required],
+      // iva:this.iva,
+      // total:this.total
 
       
     });
@@ -34,15 +37,15 @@ total:any=0;
 
   onChanges(){
 
-    this.facturaForm.valueChanges.subscribe(valor=>{
-      this.base=valor.base;
-      this.tipo=valor.tipo;
-      this.facturaForm.value.iva=this.base * this.tipo;
-      this.facturaForm.value.total=this.base +(this.base *this.tipo);
+    // this.facturaForm.valueChanges.subscribe(valor=>{
+    //   this.base=valor.base;
+    //   this.tipo=valor.tipo;
+    //   this.facturaForm.value.iva=this.base * this.tipo;
+    //   this.facturaForm.value.total=this.base +(this.base *this.tipo);
 
 
 
-    });
+   // });
   }
   onSubmit(){
   this.factura=this.saveFactura();
@@ -56,12 +59,12 @@ total:any=0;
       nombre:this.facturaForm.get('nombre').value,
       email:this.facturaForm.get('email').value,
       rfc:this.facturaForm.get('rfc').value,
-      direccion:this.facturaForm.get('direccion').value,
-      cp:this.facturaForm.get('cp').value,
-      tipo:this.facturaForm.get('tipo').value,
-      iva:this.facturaForm.get('iva').value,
-      base:this.facturaForm.get('base').value,
-      total:this.facturaForm.get('total').value
+      direccion:this.facturaForm.get('direccion').value
+      // cp:this.facturaForm.get('cp').value,
+      // tipo:this.facturaForm.get('tipo').value,
+      // iva:this.facturaForm.get('iva').value,
+      // base:this.facturaForm.get('base').value,
+      // total:this.facturaForm.get('total').value
     }
     return saveFactura;
   }

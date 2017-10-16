@@ -14,7 +14,7 @@ export class MunuUsuarioComponent implements OnInit, OnChanges {
    }
    ngOnChanges(changes: SimpleChanges){
 
-    console.log("cambio algo");
+  
     
    }
  ngDoCheck(){
@@ -24,21 +24,21 @@ export class MunuUsuarioComponent implements OnInit, OnChanges {
   if(user=='pclr@pclr.com' && pass=='123'){
  
       this.Login=true;
-      console.log('holiss');
+   
+     
       
   
   }else
        this.Login=false;
 
-console.log("cambiosss");
+
 
  }
   ngOnInit() {
     
     if(localStorage.getItem('b')=="1")
         this.Login=true;
-        console.log('entro');
-        
+       
         
 
     

@@ -26,24 +26,25 @@ export class LoginComponent {
   }
   onSubmit(){
     
-            this.login.Email=this.formpro.value.Email;
-            this.login.Password=this.formpro.value.Password;
-            if(this.login.Email=="pclr@pclr.com")
-                if(this.login.Password=="123"){
-                  this.router.navigate(['factura']);
-              
-                localStorage.setItem('b','1');
-                console.log(localStorage.getItem('b'));
-                localStorage.setItem('user',JSON.stringify(this.login.Email));
-                localStorage.setItem('pass',JSON.stringify(this.login.Password));
-                }
-
+          
+    this.login.Email=this.formpro.value.Email;
+    this.login.Password=this.formpro.value.Password;
+    if(this.login.Email=="pclr@pclr.com")
+        if(this.login.Password=="123"){
+          this.router.navigate(['inicio']);
+      
+      localStorage.setItem('login','true');
+        localStorage.setItem('user',JSON.stringify(this.login.Email));
+        localStorage.setItem('pass',JSON.stringify(this.login.Password));
+        }
                   
 
   }
   ngDoCheck(){
+    if(this.login.Email!="pclr@pclr.com")
+        if(this.login.Password!="123"){
 
-
-
-  }
+            localStorage.setItem('login','false');
+           }
+  }           
 }

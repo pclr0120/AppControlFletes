@@ -1,5 +1,6 @@
 <div class=" card card-container row">
-        <div class="col-xs-12 col-sm-10 col-sm-8 col-sm-offset-1 col-md-offset 2">
+                <p class="alert alert-danger" *ngIf="!facturaForm.valid" >Porfavor acomplete todos los campos</p>
+        <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
           <h2 class="Titulo"> Factura</h2>
           <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
             <div class="form-group">     
@@ -26,7 +27,25 @@
                     <label class="simple" for="cp">Codigo postal</label>  
                 <input type="number" formControlName="cp" id="cp" class="form-control" placeholder="Codigo postal" >
             </div>
+            <hr>
+            <!-- <div class="form-group">
+                        <label class="simple" for="proveedor">Proveedor</label>  
+                    <input type="text" formControlName="proveedor" id="proveedor" class="form-control" placeholder="PROVEEDOR" >
+            </div> -->
             <div class="form-group">
+                                <label class="simple" for="fecha">Fecha</label>  
+                            <input type="text" formControlName="fecha" id="fecha" class="form-control" placeholder="FECHA" >
+            </div>
+            <div class="form-group">
+                        <label class="simple" for="concepto">Concepto</label>  
+                    <input type="text" formControlName="concepto" id="concepto" class="form-control" placeholder="CONCEPTO" >
+                </div>
+            <hr>
+
+            <div >
+                        <app-factura-detalle></app-factura-detalle>
+                    </div>
+            <!-- <div class="form-group simple">
                     <label   for="tipo">Tipo de IVA</label>
                     <select class="form-control" formControlName="tipo" id="tipo">
                             <option value="">Seleccione...</option>
@@ -36,6 +55,9 @@
                     </select>
               
             </div>
+          
+                        
+           
             <div class="form-group">
                     <label class="simple" for="base">IVA</label>  
                     <input type="number" formControlName="base" id="base" class="form-control" placeholder="IVA" >
@@ -48,18 +70,22 @@
             </div>
             <div class="form-group">
                     <label class="simple" for="total">Total factura iva incluido</label>  
-                    <input type="number" formControlName="total" id="total"  [(ngModel)]="facturaForm.value.total" class="form-control" >
+                    <input type="number" formControlName="total" id="total"  [(ngModel)]="facturaForm.value.total" class="form-control" > 
             </div>
-
-
-            <button class="btn btn-primary" type="submit" [disabled]="!facturaForm.valid">aceptar</button>
-            <p class="alert alert-danger" *ngIf="!facturaForm.valid" >Porfavor acomplete todos los campos</p>
-            <pre>Valor del formulario:{{facturaForm.value | json}}</pre>
-            <pre>status del formulario:{{facturaForm.status | json}}</pre>
-            <hr>
-            <pre>{{factura | json}}</pre>
+         -->
+           <div>
+                        <hr>
+                        <button class="btn btn-primary  pull-right" type="submit" [disabled]="!facturaForm.valid">Guardar</button>
+                        <hr>
+           </div>
+          
           </form>
-      
+         
+          
+          <!-- <pre>Valor del formulario:{{facturaForm.value | json}}</pre>
+          <pre>status del formulario:{{facturaForm.status | json}}</pre>
+          <hr>
+          <pre>{{factura | json}}</pre> -->
         </div>
       
       

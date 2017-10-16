@@ -1,0 +1,58 @@
+
+<div class="col-sm-12" >
+  <h2 class="Titulo">Detalle</h2>
+<div class="simple " >
+    <h4>ID:<input type="number"  class="form-control" [(ngModel)]="a.Id"></h4>
+    <h4>Articulo:<input type="text"  class="form-control" [(ngModel)]="a.Nombre"></h4>
+    <h4>Descripcion:<input type="text"  class="form-control" [(ngModel)]="a.Descripcion"></h4>
+    <h4>Cantidad:<input type="number"  class="form-control" [(ngModel)]="a.Cantidad"></h4>
+    <h4>Precio:<input type="number"  class="form-control" [(ngModel)]="a.Precio"></h4>
+    <h4>IVA%:<input type="number"  class="form-control" [(ngModel)]="a.IVA"></h4>
+    
+    <button  class="btn btn-success pull-right"
+    (click)="agregar();">Añadir</button> <h2>{{notificacion}}</h2>
+ </div>
+<hr>
+<table class="table table-bordered table-striped tabla simple">
+    <thead>
+      <tr class="filters">
+        <th>ID</th>                  
+        <th>Nombre</th>
+        <th>Descripcion</th>      
+        <th>Cantidad</th>      
+        <th>IVA%</th>             
+        <th>precio unitario</th>
+        <th>Importe</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+           
+      <tr class="detalle " *ngFor="let articulos of this.factura.articulo; let i=index">
+        <td>{{ articulos.Id }}</td>   
+       
+        <td>{{ articulos.Nombre }}</td>
+        <td>{{ articulos.Descripcion }}</td>
+        <td>{{ articulos.Cantidad }}</td>
+        <td>{{ articulos.IVA }}</td>
+        <td>{{ articulos.Precio}}</td>            
+        <td>{{ articulos.Total}}</td>   
+        <td>
+          <a (click)="factura.edit(i)" class="btn btn-success pull-right" >
+            Editar
+          </a>
+          </td>  
+      </tr> 
+    </tbody>
+    </table>
+    
+    <div class="col-sm-5 simple" >
+      <hr >
+      <h2>Subtotal:$</h2><h2>{{subt}}</h2>
+      <hr >
+       <h5>IVA:$</h5><h5>{{IVA}}</h5>
+       <hr >
+       <h2>Total:$</h2><h2>{{Total}}</h2>
+      <hr >
+      </div>
+</div>

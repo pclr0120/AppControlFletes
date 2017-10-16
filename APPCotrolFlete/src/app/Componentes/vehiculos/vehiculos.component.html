@@ -1,0 +1,106 @@
+<div class=" card card-container row">
+    
+    <p class="alert alert-danger" *ngIf="!VehiculosForm.valid" >Porfavor acomplete todos los campos</p>
+<div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+<h2 class="Titulo"> Registrar Vehiculo</h2>
+<form [formGroup]="VehiculosForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+            <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+            alt="">
+            <a class="profile-img">Clic para seleccionar la imagen</a>
+    </div>
+
+<div class="form-group">     
+    <label class="simple" for="Placa">Placa</label>           
+    <i class="fa fa-check-circle check" *ngIf="VehiculosForm.controls.Placa.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="VehiculosForm.controls.Placa.invalid && VehiculosForm.controls.Placa.touched"></i>
+    <input type="text" formControlName="Placa" id="Placa" class="form-control" placeholder="Placa" required autofocus>
+    <p class="alert alert-danger"  *ngIf="VehiculosForm.controls.Placa.invalid && VehiculosForm.controls.Placa.touched" >El campo es obligatorio</p>
+</div>
+<div class="form-group">
+        <label class="simple" for="Modelo">Modelo</label>  
+        <input type="Modelo" formControlName="Modelo" id="Modelo" class="form-control" placeholder="Modelo" >
+        
+    </div>
+<div class="form-group">
+        <label class="simple" for="Tipo">Tipo</label>  
+    <input type="text" formControlName="Tipo" id="Tipo" class="form-control" placeholder="Tipo" >
+</div>
+<div class="form-group">
+        <label class="simple" for="Seguro">Seguro</label>  
+    <input type="text" formControlName="Seguro" id="Seguro" class="form-control" placeholder="Seguro" >
+</div>
+<div class="form-group">
+        <label class="simple" for="Capacidad">Capacidad</label>  
+    <input type="number" formControlName="Capacidad" id="Capacidad" class="form-control" placeholder="Capacidad maxima" >
+</div>
+<hr>
+<!-- <div class="form-group">
+            <label class="simple" for="proveedor">Proveedor</label>  
+        <input type="text" formControlName="proveedor" id="proveedor" class="form-control" placeholder="PROVEEDOR" >
+</div> -->
+<div class="form-group">
+                    <label class="simple" for="NumeroChasis">Numero Chasis</label>  
+                <input type="text" formControlName="NumeroChasis" id="NumeroChasis" class="form-control" placeholder="NumeroChasis" >
+</div>
+<div class="form-group">
+            <label class="simple" for="Combustible">Combustible</label>  
+        <input type="text" formControlName="Combustible" id="Combustible" class="form-control" placeholder="Combustible" >
+    </div>
+<hr>
+
+<div class="form-group simple">
+    <label   for="tipo">Estatus</label>
+    <select class="form-control" formControlName="Estatus" id="Estatus">
+            <option value="">Seleccione...</option>
+            <option value="0">Auto</option>
+            <option value="0.10">Trailer</option>
+            
+    </select>
+
+</div>
+<!-- <div class="form-group simple">
+        <label   for="tipo">Tipo de IVA</label>
+        <select class="form-control" formControlName="tipo" id="tipo">
+                <option value="">Seleccione...</option>
+                <option value="0">0%</option>
+                <option value="0.10">10%</option>
+                <option value="0.16">16%</option>
+        </select>
+  
+</div>
+
+            
+
+<div class="form-group">
+        <label class="simple" for="base">IVA</label>  
+        <input type="number" formControlName="base" id="base" class="form-control" placeholder="IVA" >
+</div>
+
+
+<div class="form-group">
+        <label class="simple" for="iva">Importe IVA</label>  
+        <input type="number" formControlName="iva" id="iva" [(ngModel)]="VehiculosForm.value.iva" class="form-control" disabled >
+</div>
+<div class="form-group">
+        <label class="simple" for="total">Total factura iva incluido</label>  
+        <input type="number" formControlName="total" id="total"  [(ngModel)]="VehiculosForm.value.total" class="form-control" > 
+</div>
+-->
+<div>
+            <hr>
+            <button class="btn btn-primary  pull-right" type="submit" [disabled]="!VehiculosForm.valid">Registrar</button>
+            <hr>
+</div>
+
+</form>
+
+
+<!-- <pre>Valor del formulario:{{VehiculosForm.value | json}}</pre>
+<pre>status del formulario:{{VehiculosForm.status | json}}</pre>
+<hr>
+<pre>{{factura | json}}</pre> -->
+</div>
+
+
+</div>

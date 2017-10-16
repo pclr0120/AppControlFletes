@@ -1,0 +1,71 @@
+<div class=" card card-container row">
+    <div class="col-xs-12 col-sm-10 col-sm-8 col-sm-offset-1 col-md-offset 2">
+      <h2 class="Titulo">Registrar proveedores </h2>
+      <form [formGroup]="AddproveedorForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">     
+            <label class="simple" for="nombre">Nombre</label>           
+
+            <input type="text" formControlName="nombre" id="nombre" class="form-control" placeholder="Nombre" required autofocus>
+        
+        </div>
+        <div class="form-group">
+            <label class="simple" for="telefono">Telefono</label>  
+        <input type="number" formControlName="telefono" id="telefono" class="form-control" placeholder="Telefono" >
+    </div>
+        <div class="form-group">
+                <label class="simple" for="email">Email</label>  
+                <input type="email" formControlName="email" id="email" class="form-control" placeholder="Email" >
+                
+            </div>
+            <div class="form-group">
+                <label class="simple" for="empresa">Empresa</label>  
+            <input type="text" formControlName="empresa" id="empresa" class="form-control" placeholder="EMPRESA" >
+        </div>
+        <div class="form-group">
+                <label class="simple" for="rfc">RFC</label>  
+            <input type="text" formControlName="rfc" id="rfc" class="form-control" placeholder="RFC" >
+        </div>
+        <div class="form-group">
+                <label class="simple" for="direccion">Direccion</label>  
+            <input type="text" formControlName="direccion" id="direccion" class="form-control" placeholder="Direccion" >
+        </div>
+        <div class="form-group">
+                <label class="simple" for="cp">Codigo postal</label>  
+            <input type="number" formControlName="cp" id="cp" class="form-control" placeholder="Codigo postal" >
+        </div>
+        <div class="form-group">
+            <label   for="tipo">Estado</label>
+            <select class="form-control" formControlName="estado" id="estado">
+                    <option value="">Seleccione...</option>
+                    <option value="1">Sinaloa</option>
+                    <option value="2">Sonora</option>
+                    <option value="3">Baja california sur</option>
+            </select>
+      
+    </div>
+    <div class="form-group">
+        <label   for="tipo">Ciudad</label>
+        <select class="form-control" formControlName="ciudad" id="ciudad">
+                <option value="">Seleccione...</option>
+                <option value="1">Los mochis</option>
+                <option value="2">Mexicali</option>
+                <option value="3">Tijuana</option>
+        </select>
+  
+</div>
+        <hr>
+      
+        <hr>
+     
+
+
+        <button class="btn btn-primary" type="submit" [disabled]="!AddproveedorForm.valid">Añadir</button>
+        <p class="alert alert-danger" *ngIf="!AddproveedorForm.valid" >Porfavor acomplete todos los campos</p>
+      
+       
+      </form>
+  
+    </div>
+  
+  
+  </div>
