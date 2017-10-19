@@ -1,0 +1,30 @@
+ <!-- Brand and toggle get grouped for better mobile display -->
+ <div class="navbar-header">
+    <div  class="navbar-header" >
+            <a [routerLink]="['/inicio']" class="navbar-brand"><span class="glyphicon glyphicon-star"></span>{{title}}</a>
+    </div>
+    <ul class="nav navbar-nav" >
+            <li><a [routerLink]="['/inicio']"><span class="glyphicon glyphicon-home"></span>Inicio</a></li>
+          
+            <li class=" dropdown"><a [routerLink]="['/facturaHOME']" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturacion <span class="caret"></span></a>
+                   
+                </li>
+                <li class=" dropdown"><a [routerLink]="['/Empleados']" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
+                  
+                </li>
+     
+            <li class=" dropdown"><a [routerLink]="['/Vehiculos']" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehiculos <span class="caret"></span></a>
+                   
+                </li>
+            
+            <li class=" dropdown"><a [routerLink]="['/HomeProveedor']" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Provedores <span class="caret"></span></a>
+                   
+                </li>
+                <li class=" dropdown"><a [routerLink]="['/Viajes']" class="dropdown-toggle active glyphicon glyphicon-road" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Viajes <span class="caret"></span></a>
+                  
+                </li>
+
+     </ul>
+
+     
+</div>

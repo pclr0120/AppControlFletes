@@ -34,6 +34,9 @@ import { ViajeComponent } from './Modulos/viaje/viaje.component';
 import { MapsComponent } from './Componentes/Viajes/maps/maps.component';
 import { ViajeConsultarComponent } from './Componentes/Viajes/viaje-consultar/viaje-consultar.component';
 import { MenuBotonesComponent } from './Componentes/menu-botones/menu-botones.component';
+import { WebHomeComponent } from './Modulos/pagina-web-cliente/componentes/web-home/web-home.component';
+import { WebMenuComponent } from './Modulos/pagina-web-cliente/Componentes/web-menu/web-menu.component';
+import { PanelAdminComponent } from './Componentes/admin/panel-admin/panel-admin.component';
 
 
 
@@ -41,7 +44,7 @@ import { MenuBotonesComponent } from './Componentes/menu-botones/menu-botones.co
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, MenuPrincipalComponent, OlvideMiPasswordComponent, MunuUsuarioComponent, LogOutComponent, MenuControlComponent, ProveedoresComponent, AddProveedorComponent, HomeProveedorComponent, FacturaDetalleComponent, FacturacionComponent, FacturaHomeComponent, VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent, MenuBotonesComponent
+    AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, MenuPrincipalComponent, OlvideMiPasswordComponent, MunuUsuarioComponent, LogOutComponent, MenuControlComponent, ProveedoresComponent, AddProveedorComponent, HomeProveedorComponent, FacturaDetalleComponent, FacturacionComponent, FacturaHomeComponent, VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent, MenuBotonesComponent, WebHomeComponent, WebMenuComponent, PanelAdminComponent
   ],
   imports: [
     BrowserModule , FormsModule,routing,ReactiveFormsModule
