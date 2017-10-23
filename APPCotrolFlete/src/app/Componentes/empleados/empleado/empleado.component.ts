@@ -21,8 +21,8 @@ export class EmpleadoComponent implements OnInit {
         Direccion:['',[Validators.required,Validators.maxLength(30)]],
         Ciudad:['',[Validators.required,Validators.maxLength(5)]],
         FechaNacimiento:['',[Validators.required,Validators.maxLength(5)]],
-        Foto:['',[Validators.required,Validators.maxLength(300)]],
-        Estatus:['',[Validators.required,Validators.maxLength(5)]],
+        //Foto:['',[Validators.required,Validators.maxLength(300)]],
+       // Estatus:['',[Validators.required,Validators.maxLength(5)]],
         Licencia:['',Validators.required],
         Telefono:['',Validators.required]
         // base:['',Validators.required],
@@ -62,8 +62,9 @@ export class EmpleadoComponent implements OnInit {
         Direccion:this.EmpleadoForm.get('Direccion').value,
         Ciudad:this.EmpleadoForm.get('Ciudad').value,
         FechaNacimiento:this.EmpleadoForm.get('FechaNacimiento').value,
-        Foto:this.EmpleadoForm.get('Foto').value,
-        Estatus:this.EmpleadoForm.get('Estatus').value,
+        //Foto:this.EmpleadoForm.get('Foto').value,
+        
+        //Estatus:this.EmpleadoForm.get('Estatus').value,
         Licencia:this.EmpleadoForm.get('Licencia').value,
         Telefono:this.EmpleadoForm.get('Telefono').value
 

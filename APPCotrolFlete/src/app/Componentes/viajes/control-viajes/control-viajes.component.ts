@@ -23,7 +23,7 @@ export class ControlViajesComponent implements OnInit {
             Destino:['',[Validators.required,Validators.maxLength(5)]],
             Costo:['',[Validators.required,Validators.maxLength(10)]],
             EstadoViaje:['',[Validators.required]],
-            Tipo:['',[Validators.required,Validators.maxLength(5)]]
+            Tipo:['',[Validators.required,Validators.maxLength(30)]]
          
          
             

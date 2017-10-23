@@ -2,3 +2,24 @@ mDerecho{
 
     padding-right: 10px;
 }
+
+.ICONO{
+    
+        
+        color: rgb(0, 146, 29);
+        text-decoration-color: #B81A1A;
+    }
+
+    .SALIR{
+        
+            
+            color: rgb(223, 0, 0);
+            text-decoration-color: #B81A1A;
+        }
+  
+    .Titulo{
+  
+      color: rgb(248, 15, 15);
+      text-decoration-color: #B81A1A;
+  
+    }

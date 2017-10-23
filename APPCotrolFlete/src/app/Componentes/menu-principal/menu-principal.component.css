@@ -1,6 +1,27 @@
 body{
     background: rgb(15, 20, 26);
 }
+
+.Estrella{
+  
+      
+      color: rgb(226, 223, 8);
+      text-decoration-color: #B81A1A;
+  }
+
+  .VIAJE{
+    
+        
+        color: rgb(226, 223, 8);
+        text-decoration-color: #B81A1A;
+    }
+
+  .Titulo{
+
+    color: rgb(248, 15, 15);
+    text-decoration-color: #B81A1A;
+
+  }
 .navbar, .dropdown-menu{
 background:rgba(243, 9, 9, 0.733);
 border: none;

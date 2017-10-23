@@ -4,6 +4,31 @@
 /*
  * General styles
  */
+ ut.ng-invalid.ng-touched{
+    
+        boder-left:5px solid #a94442;
+    }
+    input.ng-valid.ng-dirty{
+        
+            boder-left:5px solid hsl(108, 44%, 46%);
+        }
+        select.ng-invalid.ng-touched{
+            
+                boder-left:5px solid #a94442;
+            }
+    
+            select.ng-valid.ng-dirty{
+                
+                    boder-left:5px solid hsl(108, 44%, 46%);
+                }
+                .check{
+                    
+                        color:hsl(108, 44%, 46%);
+                    }
+                    .uncheck{
+                        
+                            color:#a94442;
+                        }
  margen{
     margin-top: 100px;
  }
@@ -25,6 +50,18 @@
     color: #E0D9D9;
     text-decoration-color: #B81A1A;
 }
+
+
+
+    .detalle{
+    
+        font-size: 12px;
+        color: rgb(46, 7, 221);
+        text-decoration-color: #B81A1A;
+    }
+
+
+   
 
 .card-container.card {
     max-width: 800px;
