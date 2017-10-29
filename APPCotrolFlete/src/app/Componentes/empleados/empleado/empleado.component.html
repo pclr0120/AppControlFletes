@@ -1,55 +1,86 @@
 <div class=" card card-container row">
-    <p class="alert alert-danger" *ngIf="!EmpleadoForm.valid" >Porfavor acomplete todos los campos</p>
-<div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
-<h2 class="Titulo"> Empleado</h2>
-<form [formGroup]="EmpleadoForm" (ngSubmit)="onSubmit()">
-    <div class="form-group" >
-        <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-        alt="">
-        <a class="profile-img">Clic para seleccionar la imagen</a>
-</div>
-<div class="form-group">     
-    <label class="simple" for="Nombre">Nombre</label>           
-    <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Nombre.valid"></i>
-    <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Nombre.invalid && EmpleadoForm.controls.Nombre.touched"></i>
-    <input type="text" formControlName="Nombre" id="Nombre" class="form-control" placeholder="Nombre" required autofocus>
-    <p class="alert alert-danger"  *ngIf="EmpleadoForm.controls.Nombre.invalid && EmpleadoForm.controls.Nombre.touched" >El campo es obligatorio</p>
-</div>
-<div class="form-group">
-        <label class="simple" for="Email">Email</label>  
-        <input type="Email" formControlName="Email" id="Email" class="form-control" placeholder="Email" >
-        
-    </div>
-<div class="form-group">
-        <label class="simple" for="Curp">Curp</label>  
-    <input type="text" formControlName="Curp" id="Curp" class="form-control" placeholder="Curp" >
-</div>
-<div class="form-group">
-        <label class="simple" for="Direccion">Direccion</label>  
-    <input type="text" formControlName="Direccion" id="Direccion" class="form-control" placeholder="Direccion" >
-</div>
-<div class="form-group">
-    <label class="simple" for="FechaNacimiento">FechaNacimiento</label>  
-<input type="text" formControlName="FechaNacimiento" id="FechaNacimiento" class="form-control" placeholder="FechaNacimiento" >
-</div>
+    <p class="alert alert-danger" *ngIf="!EmpleadoForm.valid">Porfavor acomplete todos los campos</p>
+    <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+        <h2 class="Titulo"> Empleado</h2>
+        <form [formGroup]="EmpleadoForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                    alt="">
+                <a class="profile-img">Clic para seleccionar la imagen</a>
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Nombre">Nombre</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Nombre.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Nombre.invalid && EmpleadoForm.controls.Nombre.touched"></i>
+                <input type="text" formControlName="Nombre" id="Nombre" class="form-control" placeholder="Nombre" required autofocus>
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Nombre.invalid && EmpleadoForm.controls.Nombre.touched">El campo es obligatorio</p>
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Email">Email</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Email.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Email.invalid && EmpleadoForm.controls.Email.touched"></i>
 
-<hr>
-<div class="form-group">
-            <label class="simple" for="Licencia">Licencia</label>  
-        <input type="text" formControlName="Licencia" id="Licencia" class="form-control" placeholder="Licencia" >
-</div> 
-<div class="form-group">
-    <label class="simple" for="Telefono">Telefono</label>  
-<input type="number" formControlName="Telefono" id="Telefono" class="form-control" placeholder="Telefono" >
-</div> 
+                <input type="Email" formControlName="Email" id="Email" class="form-control" placeholder="Email" required email>
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Email.invalid && EmpleadoForm.controls.Email.touched">El campo es obligatorio</p>
 
-<div class="form-group">
-            <label class="simple" for="Ciudad">Ciudad</label>  
-        <input type="text" formControlName="Ciudad" id="Ciudad" class="form-control" placeholder="Ciudad" >
-    </div>
-<hr>
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Curp">Curp</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Curp.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Curp.invalid && EmpleadoForm.controls.Curp.touched"></i>
 
-<!-- <div class="form-group simple">
+                <input type="text" formControlName="Curp" id="Curp" class="form-control" placeholder="Curp">
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Curp.invalid && EmpleadoForm.controls.Curp.touched">El campo es obligatorio(Maximo de caracteres 18)</p>
+
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Direccion">Direccion</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Direccion.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Direccion.invalid && EmpleadoForm.controls.Direccion.touched"></i>
+
+                <input type="text" formControlName="Direccion" id="Direccion" class="form-control" placeholder="Direccion">
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Direccion.invalid && EmpleadoForm.controls.Direccion.touched">El campo es obligatorio(Maximo de caracteres 50)</p>
+
+            </div>
+            <div class="form-group">
+                <label class="simple" for="FechaNacimiento">FechaNacimiento</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.FechaNacimiento.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.FechaNacimiento.invalid && EmpleadoForm.controls.FechaNacimiento.touched"></i>
+
+                <input type="date" formControlName="FechaNacimiento" id="FechaNacimiento" class="form-control" placeholder="FechaNacimiento"
+                    >
+
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.FechaNacimiento.invalid && EmpleadoForm.controls.FechaNacimiento.touched">El campo es obligatorio</p>
+
+            </div>
+
+            <hr>
+            <div class="form-group">
+                <label class="simple" for="Licencia">Licencia</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Licencia.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Licencia.invalid && EmpleadoForm.controls.Licencia.touched"></i>
+
+                <input type="text" formControlName="Licencia" id="Licencia" class="form-control" placeholder="Licencia">
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Licencia.invalid && EmpleadoForm.controls.Licencia.touched">El campo es obligatorio</p>
+                
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Telefono">Telefono</label>
+                <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Telefono.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Telefono.invalid && EmpleadoForm.controls.Telefono.touched"></i>
+
+                <input type="number" formControlName="Telefono" id="Telefono" class="form-control" placeholder="Telefono">
+                <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Telefono.invalid && EmpleadoForm.controls.Telefono.touched">El campo es obligatorio (10 caracteres maximo)</p>
+                
+            </div>
+
+            <!-- <div class="form-group">
+                <label class="simple" for="Ciudad">Ciudad</label>
+                <input type="text" formControlName="Ciudad" id="Ciudad" class="form-control" placeholder="Ciudad">
+            </div> -->
+            <hr>
+
+            <!-- <div class="form-group simple">
         <label   for="tipo">Tipo de IVA</label>
         <select class="form-control" formControlName="tipo" id="tipo">
                 <option value="">Seleccione...</option>
@@ -77,20 +108,20 @@
         <input type="number" formControlName="total" id="total"  [(ngModel)]="EmpleadoForm.value.total" class="form-control" > 
 </div>
 -->
-<div>
-            
-            <button class="btn btn-primary  pull-right" type="submit" [disabled]="!EmpleadoForm.valid">Guardar</button>
-            
-</div>
+            <div>
 
-</form>
+                <button class="btn btn-primary  pull-right" type="submit" [disabled]="!EmpleadoForm.valid">Guardar</button>
+
+            </div>
+
+        </form>
 
 
-<!-- <pre>Valor del formulario:{{EmpleadoForm.value | json}}</pre>
+        <!-- <pre>Valor del formulario:{{EmpleadoForm.value | json}}</pre>
 <pre>status del formulario:{{EmpleadoForm.status | json}}</pre>
 <hr>
 <pre>{{factura | json}}</pre> -->
-</div>
+    </div>
 
 
 </div>

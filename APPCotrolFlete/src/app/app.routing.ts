@@ -18,6 +18,7 @@ import { EmpleadoHomeComponent } from './Componentes/Empleados/empleado-home/emp
 import { ViajeComponent } from './Modulos/viaje/viaje.component';
 import { ViajeConsultarComponent } from './Componentes/Viajes/viaje-consultar/viaje-consultar.component';
 import { WebHomeComponent } from './Modulos/pagina-web-cliente/componentes/web-home/web-home.component';
+import { UsuarioPostComponent } from './usuarios/usuario-post/usuario-post.component';
 
 
 const appRoutes:Routes=[
@@ -40,7 +41,8 @@ const appRoutes:Routes=[
     ,
     {path:'ViajesC',component:ViajeConsultarComponent}
     ,
-    {path:'WebHome',component:WebHomeComponent}
+    {path:'WebHome',component:WebHomeComponent},
+    {path:'UserPost',component:UsuarioPostComponent}
     
 
 ];

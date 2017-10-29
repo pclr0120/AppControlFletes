@@ -1,21 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-
 import {FormsModule} from '@angular/forms';
 import {LoginComponent} from './Componentes/Login/login.component';
 import {routing,appRoutingProviders} from './app.routing';
 import { InicioComponent } from './Componentes/inicio/inicio.component';
 import { HomeComponent } from './Componentes/home/home.component';
 import { FacturaComponent } from './Componentes/factura/factura.component';
-
 import {ReactiveFormsModule}from '@angular/forms';
 import { MenuPrincipalComponent } from './Componentes/menu-principal/menu-principal.component';
 import { OlvideMiPasswordComponent } from './Componentes/olvide-mi-password/olvide-mi-password.component';
 import { MunuUsuarioComponent } from './Componentes/munu-usuario/munu-usuario.component';
 import { LogOutComponent } from './Componentes/log-out/log-out.component';
-
 import { MenuControlComponent } from './Modulos/menu-control/menu-control.component';
 import { ProveedoresComponent } from './Modulos/proveedores/proveedores.component';
 import { AddProveedorComponent } from './Componentes/proveedores/add-proveedor/add-proveedor.component';
@@ -37,6 +33,11 @@ import { MenuBotonesComponent } from './Componentes/menu-botones/menu-botones.co
 import { WebHomeComponent } from './Modulos/pagina-web-cliente/componentes/web-home/web-home.component';
 import { WebMenuComponent } from './Modulos/pagina-web-cliente/Componentes/web-menu/web-menu.component';
 import { PanelAdminComponent } from './Componentes/admin/panel-admin/panel-admin.component';
+import { EmpleadoListaComponent } from './Componentes/empleados/empleado-lista/empleado-lista.component';
+import { UsuarioPostComponent } from './usuarios/usuario-post/usuario-post.component';
+
+import {MysqlService}from '../app/servicios/mysql.service'; 
+import {HttpModule} from '@angular/http';
 
 
 
@@ -44,13 +45,19 @@ import { PanelAdminComponent } from './Componentes/admin/panel-admin/panel-admin
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, MenuPrincipalComponent, OlvideMiPasswordComponent, MunuUsuarioComponent, LogOutComponent, MenuControlComponent, ProveedoresComponent, AddProveedorComponent, HomeProveedorComponent, FacturaDetalleComponent, FacturacionComponent, FacturaHomeComponent, VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent, MenuBotonesComponent, WebHomeComponent, 
-    WebMenuComponent, PanelAdminComponent
+    AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, 
+    MenuPrincipalComponent, OlvideMiPasswordComponent, MunuUsuarioComponent,
+     LogOutComponent, MenuControlComponent, ProveedoresComponent, AddProveedorComponent, 
+     HomeProveedorComponent, FacturaDetalleComponent, FacturacionComponent, FacturaHomeComponent,
+      VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, 
+      ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent,
+       MenuBotonesComponent, WebHomeComponent, 
+    WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent
   ],
   imports: [
-    BrowserModule , FormsModule,routing,ReactiveFormsModule
+    BrowserModule , FormsModule,routing,ReactiveFormsModule,HttpModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders,MysqlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

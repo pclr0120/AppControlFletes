@@ -2,7 +2,7 @@
         <p class="alert alert-danger" *ngIf="!facturaForm.valid">Porfavor acomplete todos los campos</p>
         <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
                 <h2 class="Titulo"> Factura</h2>
-                <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()" >
                         <div class="form-group">
                                 <label class="simple" for="nombre">Nombre</label>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.nombre.valid"></i>
@@ -14,7 +14,7 @@
                                 <label class="simple" for="email">Email</label>
                                 <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.email.invalid && facturaForm.controls.email.touched"></i>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.email.valid"></i>
-                                
+
                                 <input type="email" formControlName="email" id="email" class="form-control" placeholder="Email" required email>
                                 <p class="alert alert-danger" *ngIf="facturaForm.controls.email.invalid && facturaForm.controls.email.touched">El campo es obligatorio y requiere un email valido(caracteres maximo 50)</p>
                         </div>
@@ -22,7 +22,7 @@
                                 <label class="simple" for="rfc">RFC</label>
                                 <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.rfc.invalid && facturaForm.controls.rfc.touched"></i>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.rfc.valid"></i>
-                                
+
                                 <input type="text" formControlName="rfc" id="rfc" class="form-control" placeholder="RFC">
                                 <p class="alert alert-danger" *ngIf="facturaForm.controls.rfc.invalid && facturaForm.controls.rfc.touched">El campo es obligatorio y requiere un RFC valido(caracteres maximo 13)</p>
 
@@ -31,7 +31,7 @@
                                 <label class="simple" for="direccion">Direccion</label>
                                 <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.direccion.invalid && facturaForm.controls.direccion.touched"></i>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.direccion.valid"></i>
-                                
+
                                 <input type="text" formControlName="direccion" id="direccion" class="form-control" placeholder="Direccion">
                                 <p class="alert alert-danger" *ngIf="facturaForm.controls.direccion.invalid && facturaForm.controls.direccion.touched">El campo es obligatorio (caracteres maximo 50)</p>
                         </div>
@@ -39,80 +39,49 @@
                                 <label class="simple" for="cp">Codigo postal</label>
                                 <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.cp.invalid && facturaForm.controls.cp.touched"></i>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.cp.valid"></i>
-                                
-                                <input type="number" formControlName="cp" id="cp" class="form-control" placeholder="Codigo postal" required  number>
+
+                                <input type="number" formControlName="cp" id="cp" class="form-control" placeholder="Codigo postal" required number>
                                 <p class="alert alert-danger" *ngIf="facturaForm.controls.cp.invalid && facturaForm.controls.cp.touched">El campo es obligatorio (caracteres maximo 5)</p>
-                                
+
                         </div>
                         <hr>
-                        <!-- <div class="form-group">
-                        <label class="simple" for="proveedor">Proveedor</label>  
-                    <input type="text" formControlName="proveedor" id="proveedor" class="form-control" placeholder="PROVEEDOR" >
-            </div> -->
+                 
                         <div class="form-group">
                                 <label class="simple" for="fecha">Fecha</label>
                                 <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.fecha.invalid && facturaForm.controls.fecha.touched"></i>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.fecha.valid"></i>
-                                
+
                                 <input type="date" formControlName="fecha" id="fecha" class="form-control" placeholder="FECHA" required date>
                                 <p class="alert alert-danger" *ngIf="facturaForm.controls.fecha.invalid && facturaForm.controls.fecha.touched">El campo es obligatorio y requiere un formato de fecha valido valido</p>
-                                
+
                         </div>
                         <div class="form-group">
                                 <label class="simple" for="concepto">Concepto</label>
                                 <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.concepto.invalid && facturaForm.controls.concepto.touched"></i>
                                 <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.concepto.valid"></i>
-                                
-                                <input type="text" formControlName="concepto" id="concepto" class="form-control" placeholder="CONCEPTO">
+
+                                <input  [disabled]="guardado==true"  type="text" formControlName="concepto" id="concepto" class="form-control" placeholder="CONCEPTO">
                                 <p class="alert alert-danger" *ngIf="facturaForm.controls.concepto.invalid && facturaForm.controls.concepto.touched">El campo es obligatorio (caracteres maximo 30)</p>
-                                
+
                         </div>
                         <hr>
 
-                        <div *ngIf="facturaForm.valid">
-                                <app-factura-detalle></app-factura-detalle>
-                        </div>
-                        <!-- <div class="form-group simple">
-                    <label   for="tipo">Tipo de IVA</label>
-                    <select class="form-control" formControlName="tipo" id="tipo">
-                            <option value="">Seleccione...</option>
-                            <option value="0">0%</option>
-                            <option value="0.10">10%</option>
-                            <option value="0.16">16%</option>
-                    </select>
-              
-            </div>
-          
-                        
-           
-            <div class="form-group">
-                    <label class="simple" for="base">IVA</label>  
-                    <input type="number" formControlName="base" id="base" class="form-control" placeholder="IVA" >
-            </div>
-          
-
-            <div class="form-group">
-                    <label class="simple" for="iva">Importe IVA</label>  
-                    <input type="number" formControlName="iva" id="iva" [(ngModel)]="facturaForm.value.iva" class="form-control" disabled >
-            </div>
-            <div class="form-group">
-                    <label class="simple" for="total">Total factura iva incluido</label>  
-                    <input type="number" formControlName="total" id="total"  [(ngModel)]="facturaForm.value.total" class="form-control" > 
-            </div>
-         -->
-                        <div>
-                                <hr>
-                                <button class="btn btn-primary  pull-right" type="submit" [disabled]="!facturaForm.valid">Guardar</button>
-                                <hr>
-                        </div>
+                    
+        
 
                 </form>
+ 
+                <div *ngIf="facturaForm.valid">
+                                <app-factura-detalle></app-factura-detalle>
+                        </div>
 
-
-                <!-- <pre>Valor del formulario:{{facturaForm.value | json}}</pre>
-          <pre>status del formulario:{{facturaForm.status | json}}</pre>
-          <hr>
-          <pre>{{factura | json}}</pre> -->
+            
+                
+                        <div >
+                                <hr>
+                                <button class="btn btn-primary  pull-right" (click)="onSubmit()" [disabled]="!facturaForm.valid">Guardar Factura</button>
+                                <hr>
+                        </div>
         </div>
 
 

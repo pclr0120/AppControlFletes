@@ -2,15 +2,55 @@
 <div class="col-sm-12" >
   <h2 class="Titulo">Detalle</h2>
 <div class="simple " >
-    <h4>ID:<input type="number"  class="form-control" [(ngModel)]="a.Id"></h4>
-    <h4>Articulo:<input type="text"  class="form-control" [(ngModel)]="a.Nombre"></h4>
-    <h4>Descripcion:<input type="text"  class="form-control" [(ngModel)]="a.Descripcion"></h4>
-    <h4>Cantidad:<input type="number"  class="form-control" [(ngModel)]="a.Cantidad"></h4>
-    <h4>Precio:<input type="number"  class="form-control" [(ngModel)]="a.Precio"></h4>
-    <h4>IVA%:<input type="number"  class="form-control" [(ngModel)]="a.IVA"></h4>
-    
+    <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="id">id:</label>
+          <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.id.valid"></i>
+          <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.id.invalid && facturaForm.controls.id.touched"></i>
+        
+          <input type="number" formControlName="id" id="id" class="form-control" placeholder="id" [(ngModel)]="a.Id" >
+          <p class="alert alert-danger"  *ngIf="facturaForm.controls.id.invalid && facturaForm.controls.id.touched" >El campo es obligatorio y (caracteres maximos 10)</p>
+          
+        </div >
+    <div class="form-group">
+        <label for="articulo">Articulo:</label>
+        <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.articulo.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.articulo.invalid && facturaForm.controls.articulo.touched"></i>  
+        <input type="text"  class="form-control" formControlName="articulo" id="articulo" [(ngModel)]="a.Nombre"  placeholder="Nombre del articulo">
+        <p class="alert alert-danger"  *ngIf="facturaForm.controls.articulo.invalid && facturaForm.controls.articulo.touched" >El campo es obligatorio y (caracteres maximos 50)</p>  
+      </div >
+
+      <div class="form-group">
+          <label for="descripcion">descripcion:</label>
+          <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.descripcion.valid"></i>
+          <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.descripcion.invalid && facturaForm.controls.descripcion.touched"></i>  
+          <input type="text"  class="form-control" formControlName="descripcion" id="descripcion" [(ngModel)]="a.Descripcion"  placeholder="Descripcion">
+          <p class="alert alert-danger"  *ngIf="facturaForm.controls.descripcion.invalid && facturaForm.controls.descripcion.touched" >El campo es obligatorio y (caracteres maximos 50)</p>  
+      </div >
+        <div class="form-group">
+            <label for="cantidad">cantidad:</label>
+            <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.cantidad.valid"></i>
+            <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.cantidad.invalid && facturaForm.controls.cantidad.touched"></i>  
+            <input type="number"  class="form-control" formControlName="cantidad" id="cantidad" [(ngModel)]="a.Cantidad"  placeholder="Cantidad" >
+            <p class="alert alert-danger"  *ngIf="facturaForm.controls.cantidad.invalid && facturaForm.controls.cantidad.touched" >El campo es obligatorio y (caracteres maximos 10)</p>  
+        </div >
+        <div class="form-group">
+            <label for="precio">precio:</label>
+            <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.precio.valid"></i>
+            <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.precio.invalid && facturaForm.controls.precio.touched"></i>  
+            <input type="number"  class="form-control" formControlName="precio" id="precio" [(ngModel)]="a.Precio"  placeholder="precio sin IVA" >
+            <p class="alert alert-danger"  *ngIf="facturaForm.controls.precio.invalid && facturaForm.controls.precio.touched" >El campo es obligatorio y (caracteres maximos 10)</p>  
+        </div >
+        <div class="form-group">
+            <label for="iva">iva:</label>
+            <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.iva.valid"></i>
+            <i class="fa fa-exclamation-circle uncheck " *ngIf="facturaForm.controls.iva.invalid && facturaForm.controls.iva.touched"></i>  
+            <input type="number"  class="form-control" formControlName="iva" id="iva" [(ngModel)]="a.IVA"  placeholder="IVa">
+            <p class="alert alert-danger"  *ngIf="facturaForm.controls.iva.invalid && facturaForm.controls.iva.touched" >El campo es obligatorio y (caracteres maximos 10)</p>  
+        </div >
+    </form>
     <button  class="btn btn-success pull-right"
-    (click)="agregar();">Añadir</button> <h2>{{notificacion}}</h2>
+    (click)="agregar();" [disabled]="!facturaForm.valid">Añadir</button> <h2>{{notificacion}}</h2>
  </div>
 <hr>
 <table class="table table-bordered table-striped tabla simple">

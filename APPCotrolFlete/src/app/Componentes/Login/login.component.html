@@ -1,23 +1,25 @@
-
-
-
-
-        <form >
-            <div class="card card-container">
-                <h2 class="Titulo">Iniciar Sesión</h2>
-                <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin" (ngSubmit)="onSubmit()" #formpro="ngForm">
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" ngModel name="Email" id="Email" class="form-control" placeholder="Email" required autofocus>
-                    <input type="password" ngModel name="Password" id="Password" class="form-control" placeholder="Password" required>                 
-                    <button class="btn btn-lg btn-primary btn-block btn-signin"  type="submit">Entrar</button>
-           
-                </form>
-                <a [routerLink]="['/OlvideMiPassword']"  class="forgot-password">
-                   Olvide mi contraseña
-                </a>
-                <hr>
-                <pre>{{login | json }}</pre>
+<form>
+    <div class="card card-container">
+        <h2 class="Titulo">Iniciar Sesión</h2>
+        <p User="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" [formGroup]="LoginForm" (ngSubmit)="onSubmit()" #formpro="ngForm">
+            <span User="reauth-User" class="reauth-User"></span>
+            <div class="form-group">
+                <input type="User"  formControlName="User" ngModel name="User" User="User" class="form-control" placeholder="Usuario" required email>
+                <p class="alert alert-danger" *ngIf="LoginForm.controls.User.invalid && LoginForm.controls.User.touched">El campo es obligatorio </p>
             </div>
+            <div class="form-group">
+                <input type="password"  formControlName="Password" ngModel name="Password" User="Password" class="form-control" placeholder="contraseña" required>
+                <p class="alert alert-danger" *ngIf="LoginForm.controls.Password.invalid && LoginForm.controls.Password.touched">El campo es obligatorio</p>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+                <a  *ngIf="b" class="Restablecer">Usuario o contraseña no validos</a>
         </form>
-
+        <hr>
+        <a [routerLink]="['/OlvUsereMiPassword']" class="forgot-password">
+            Olvide  mi contraseña
+        </a>
+        <hr>
+        <pre>{{login | json }}</pre>
+    </div>
+</form>

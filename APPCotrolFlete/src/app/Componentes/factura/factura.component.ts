@@ -12,6 +12,7 @@ base:any;
 tipo:any;
 iva:any=0;
 total:any=0;
+guardado:boolean;
   constructor(private pf:FormBuilder) { }
 
   ngOnInit() {
@@ -23,8 +24,8 @@ total:any=0;
       direccion:['',[Validators.required,Validators.maxLength(30)]],
       cp:['',[Validators.required,Validators.maxLength(5)]],
      // proveedor:['',Validators.required],
-      fecha:['',Validators.required],
-      concepto:['',Validators.required]
+      fecha:['',Validators.required,],
+      concepto:['',[Validators.required,Validators.maxLength(30)]]
       // base:['',Validators.required],
       // tipo:['',Validators.required],
       // iva:this.iva,
@@ -44,13 +45,17 @@ total:any=0;
     //   this.facturaForm.value.total=this.base +(this.base *this.tipo);
 
 
-
+    
    // });
   }
   onSubmit(){
   this.factura=this.saveFactura();
   console.log("hola");
-  
+
+  this.guardado=true;
+  this.facturaForm.reset();
+
+
   
   }
   saveFactura(){
@@ -67,6 +72,12 @@ total:any=0;
       // total:this.facturaForm.get('total').value
     }
     return saveFactura;
+  }
+  MostrarCabecera(){
+
+    this.guardado=false;
+    console.log("dasdas");
+    
   }
 
 }

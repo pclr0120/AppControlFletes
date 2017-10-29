@@ -18,13 +18,13 @@ export class EmpleadoComponent implements OnInit {
         Nombre:['',[Validators.required,Validators.maxLength(50)]],
         Email:['',[Validators.required,Validators.maxLength(50)]],
         Curp:['',[Validators.required,Validators.maxLength(18)]],
-        Direccion:['',[Validators.required,Validators.maxLength(30)]],
-        Ciudad:['',[Validators.required,Validators.maxLength(5)]],
-        FechaNacimiento:['',[Validators.required,Validators.maxLength(5)]],
+        Direccion:['',[Validators.required,Validators.maxLength(50)]],
+       // Ciudad:['',[Validators.required,Validators.maxLength(5)]],
+        FechaNacimiento:['',[Validators.required]],
         //Foto:['',[Validators.required,Validators.maxLength(300)]],
        // Estatus:['',[Validators.required,Validators.maxLength(5)]],
-        Licencia:['',Validators.required],
-        Telefono:['',Validators.required]
+       Licencia:['',[Validators.required,Validators.maxLength(15)]],
+       Telefono:['',[Validators.required,Validators.maxLength(10)]]
         // base:['',Validators.required],
         // tipo:['',Validators.required],
         // iva:this.iva,
@@ -60,7 +60,7 @@ export class EmpleadoComponent implements OnInit {
         Email:this.EmpleadoForm.get('Email').value,
         Curp:this.EmpleadoForm.get('Curp').value,
         Direccion:this.EmpleadoForm.get('Direccion').value,
-        Ciudad:this.EmpleadoForm.get('Ciudad').value,
+       // Ciudad:this.EmpleadoForm.get('Ciudad').value,
         FechaNacimiento:this.EmpleadoForm.get('FechaNacimiento').value,
         //Foto:this.EmpleadoForm.get('Foto').value,
         

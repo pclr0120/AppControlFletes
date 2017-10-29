@@ -1,0 +1,70 @@
+<div class=" card card-container row">
+  <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+      <h2 class="Titulo"> Registrar Usuario</h2>
+      <form [formGroup]="UsuarioForm" (ngSubmit)="onSubmit()">
+       
+
+        <div class="form-group">     
+            
+                   <label  class="simple" for="Tipo">Tipo  de Usuario </label>
+                   <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Tipo.valid"></i>
+                   <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Tipo.invalid && UsuarioForm.controls.Tipo.touched"></i>
+     
+                   <select class="form-control" formControlName="Tipo" id="Tipo">
+                           <option value="">Seleccione ...</option>
+                           <option value="EMP">Empleado</option>
+                           <option value="TEM">Temporal</option>
+                           
+                   </select>
+                   <p class="alert alert-danger" *ngIf="UsuarioForm.controls.Tipo.invalid && UsuarioForm.controls.Tipo.touched">Es obligatorio seleccionar un tipo</p>
+                   
+             
+          
+           </div>
+           <div class="form-group" *ngIf="NEBander">
+            <label class="simple" for="NE">NE</label>
+            <i class="fa fa-check-circle check" *ngIf="NeFound"></i>
+            <i class="fa fa-exclamation-circle uncheck " *ngIf="NeFound==false && UsuarioForm.controls.NE.touched"></i>
+
+            <input type="number" formControlName="NE" id="NE" class="form-control" placeholder="Numero de empleado"  >
+            <p class="alert alert-danger" *ngIf="UsuarioForm.controls.NE.invalid && UsuarioForm.controls.NE.touched">El campo es obligatorio</p>
+
+        </div>
+          <div class="form-group">
+              <label class="simple" for="Usuario">Usuario</label>
+              <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Usuario.valid"></i>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Usuario.invalid && UsuarioForm.controls.Usuario.touched"></i>
+
+              <input type="Usuario" formControlName="Usuario" id="Usuario" class="form-control" placeholder="Email" required email>
+              <p class="alert alert-danger" *ngIf="UsuarioForm.controls.Usuario.invalid && UsuarioForm.controls.Usuario.touched">El campo es obligatorio</p>
+
+          </div>
+          <div class="form-group">
+              <label class="simple" for="Password">Password</label>
+              <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Password.valid"></i>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Password.invalid && UsuarioForm.controls.Password.touched"></i>
+
+              <input type="text" formControlName="Password" id="Password" class="form-control" placeholder="Password">
+              <p class="alert alert-danger" *ngIf="UsuarioForm.controls.Password.invalid && UsuarioForm.controls.Password.touched">El campo es obligatorio caracteres minimo 6</p>
+
+          </div>
+      
+
+      
+          <div>
+
+              <button class="btn btn-primary  pull-right" type="submit" [disabled]="!UsuarioForm.valid">Guardar</button>
+
+          </div>
+
+      </form>
+  
+  
+      
+      
+
+
+  </div>
+
+
+</div>
