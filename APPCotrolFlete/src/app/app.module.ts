@@ -38,6 +38,7 @@ import { UsuarioPostComponent } from './usuarios/usuario-post/usuario-post.compo
 
 import {MysqlService}from '../app/servicios/mysql.service'; 
 import {HttpModule} from '@angular/http';
+import { EmpleadoEditComponent } from './Componentes/empleados/empleado-edit/empleado-edit.component';
 
 
 
@@ -52,7 +53,7 @@ import {HttpModule} from '@angular/http';
       VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, 
       ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent,
        MenuBotonesComponent, WebHomeComponent, 
-    WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent
+    WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent, EmpleadoEditComponent
   ],
   imports: [
     BrowserModule , FormsModule,routing,ReactiveFormsModule,HttpModule

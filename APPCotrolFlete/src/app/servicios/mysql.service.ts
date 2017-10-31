@@ -3,24 +3,24 @@ import {Headers,Http,Response}from '@angular/http';
 import 'rxjs/Rx';
 @Injectable()
 export class MysqlService {
-  presUrl='http://localhost:3000/users';
-  preURL='http://localhost:3000/users';
+  presUrl='http://localhost:3000/empleados';
+  preURL='http://localhost:3000/empleados';
     constructor(private http:Http) { }
   
-    postPresupuesto(presupuesto: any){
-      console.log(presupuesto);
+    postUsuario(usuario: any){
+     // console.log(usuario);
       
-      const newpres=JSON.stringify(presupuesto);
+      const newpres=JSON.stringify(usuario);
       const headers=new Headers({'Content-Type': 'application/json'});
       return this.http.post(this.presUrl,newpres,{headers}).map(res=>{
-        console.log(res.json());
+        console.log('servicio',res.json());
       return res.json();
       
       })
       
       }
  
-      getPresupuestos(){
+      getUsuarios(){
         try {
           return this.http.get(this.presUrl).map(res=>res.json());
         } catch (error) {
@@ -31,13 +31,17 @@ export class MysqlService {
       
       
       }
-      getPresupuesto(id$: string ){
-        const url=`${this.preURL}/${id$}.json`;
-        return this.http.get (url)
-        .map(res=>res.json());
+      getUsuario(id$: string ){
+        const url=`${this.preURL}/${id$}`;
+        console.log(url);
+        
+        return this.http.get(url).map(res=>{ console.log('servicio',res.json());
+          return res.json(); 
+        });
+         
       }
-      putPresupuesto(presupuesto: any, id$:string ){
-        const newpre=JSON.stringify(presupuesto);
+      putUsuario(usuario: any, id$:string ){
+        const newpre=JSON.stringify(usuario);
         const headers=new Headers({'Content-Type': 'application/json'});
         const url=`${this.preURL}/${id$}.json`;
         return this.http.put(url,newpre,{headers})
@@ -47,7 +51,7 @@ export class MysqlService {
   
       }
   
-      delPresupuesto(id$:string){
+      delUsuario(id$:string){
         const url=`${this.preURL}/${id$}.json`;
         return this.http.delete(url).map(res=>res.json());
   
