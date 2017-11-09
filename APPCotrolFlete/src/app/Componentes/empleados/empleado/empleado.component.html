@@ -1,11 +1,17 @@
 <div class=" card card-container row">
     <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+            <hr>
+        <button class="btm1 fa fa-pencil" [routerLink]="['/Empleados']">HOME EMPLEADOS</button>
+        <hr>    
         <h2 class="Titulo"> Empleado</h2>
         <form [formGroup]="EmpleadoForm" (ngSubmit)="onSubmit()">
+                <img class=" profile-img"   [src]="fileBrowser"
+                alt="">
             <div class="form-group">
-                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                    alt="">
-                <a class="profile-img">Clic para seleccionar la imagen</a>
+             
+                    <img [src]="url" class="profile-img-card">
+                  <input type='file' formControlName="Foto" id="Foto" class="form-control" placeholder="Seleccione una foto"  (change)="readUrl($event)">
+
             </div>
             <div class="form-group">
                 <label class="simple" for="Nombre">Nombre</label>
@@ -137,7 +143,14 @@
 
                 <button class="btn btn-primary  pull-right" type="submit" [disabled]="!EmpleadoForm.valid">Guardar</button>
                 
-
+                <div class="alertsuccess" *ngIf="Resultado==false">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        No se puede llevar acabo la transaccion intente mas tarde
+                      </div>
+                      <div class="alertsuccess" *ngIf="Resultado==true">
+                          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                         Registro eliminado correctamente
+                        </div>                
             </div>
 
         </form>

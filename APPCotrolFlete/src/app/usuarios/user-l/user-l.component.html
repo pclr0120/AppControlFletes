@@ -1,0 +1,59 @@
+<div class=" card card-container row">
+  
+<h3 class=" Titulo">Lista de Usuarios</h3>
+<a class="btn btn-primary float-md-right" [routerLink]="['/UserPost']" >Añadir nuevo usuarios</a>
+
+<br>
+
+<div class="alertsuccess" *ngIf="Resultado==false">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    No se puede llevar acabo la transaccion intente mas tarde
+  </div>
+  <div class="alertv" *ngIf="Resultado==true">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+     success
+    </div>
+<table class="table table-bordered table-striped tabla" style="margin-top:40px;">
+
+  <thead>
+    <tr class="filters simple">
+      
+      <th><input type="text" name="userrr" [(ngModel)]="Buscar.userrr" placeholder="Usuario"><i class="fa fa-search" aria-hidden="true"></i></th>
+      <th>Contraseña</th>
+      <th>Rol</th>
+      <th>NE</th>
+      <th>Estatus</th>
+      <th>Controles</th>
+ 
+
+    </tr>
+
+  </thead>
+  <tbody>
+      <tr *ngFor="let usuarios of usuarios | Buscador:Buscar" class="detalle">
+         
+        <td>{{usuarios.userrr}}</td>
+        <td>{{usuarios.pass}}</td>
+        <td>{{usuarios.Rol}}</td>
+        <td>{{usuarios.idEmpleado}}</td>
+        <td>{{usuarios.Estatus}}</td>
+   
+        <td>
+          <button type="button" class="btn btn-success  fa fa-pencil"  [routerLink]="['/UserEdit/', usuarios.Id]" >Detalle</button>
+          <button type="button" class="btn btn-danger fa fa-trash-o"  [routerLink]="['/UserL']" (click)="eliminarUsuario(usuarios.Id)" ></button>
+          
+        </td>
+      
+      </tr>
+    </tbody>
+</table>
+<div class="alertsuccess" *ngIf="Resultado==false">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    No se puede llevar acabo la transaccion intente mas tarde
+  </div>
+  <div class="alertsuccess" *ngIf="Resultado==true">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+     Registro eliminado correctamente
+    </div>
+
+</div>

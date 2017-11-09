@@ -1,22 +1,17 @@
 <div class=" card card-container row">
   <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
-      <hr>
-      <a class="btn btn-primary float-md-right" [routerLink]="['/UserH']" >HOME USUARIO</a>
-      
-      <hr>
-      <h2 class="Titulo"> Registrar Usuario</h2>
-      
-      <br>
+      <h2 class="Titulo"> Actualizacion de  Usuario</h2>
       <form [formGroup]="UsuarioForm" (ngSubmit)="onSubmit()">
        
 
-       
+    
+      
             <div class="form-group">
                     <label class="simple" for="NE">NE</label>
                     <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.NE.valid"></i>
                     <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.NE.invalid && UsuarioForm.controls.NE.touched"></i>
       
-                    <input type="text" formControlName="NE" id="NE" class="form-control" placeholder="Numero de empleado" required >
+                    <input type="text" formControlName="NE" id="NE" class="form-control" [(ngModel)]="Usuario.idEmpleado" placeholder="Numero de empleado" disabled >
                     <p class="alert alert-danger" *ngIf="UsuarioForm.controls.NE.invalid && UsuarioForm.controls.NE.touched">El campo es obligatorio</p>
       
                 </div>
@@ -25,7 +20,7 @@
               <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Usuario.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Usuario.invalid && UsuarioForm.controls.Usuario.touched"></i>
 
-              <input type="Usuario" formControlName="Usuario" id="Usuario" class="form-control" placeholder="Email" required email>
+              <input type="Usuario" formControlName="Usuario" id="Usuario" class="form-control" placeholder="Email" [(ngModel)]="Usuario.userrr" disabled required email>
               <p class="alert alert-danger" *ngIf="UsuarioForm.controls.Usuario.invalid && UsuarioForm.controls.Usuario.touched">El campo es obligatorio</p>
 
           </div>
@@ -34,10 +29,11 @@
               <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Password.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Password.invalid && UsuarioForm.controls.Password.touched"></i>
 
-              <input type="text" formControlName="Password" id="Password" class="form-control" placeholder="Password">
+              <input type="text" formControlName="Password" id="Password" class="form-control" [(ngModel)]="Usuario.pass" placeholder="Password">
               <p class="alert alert-danger" *ngIf="UsuarioForm.controls.Password.invalid && UsuarioForm.controls.Password.touched">El campo es obligatorio caracteres minimo 6</p>
 
           </div>
+      
           <hr>
           <div class="form-group">     
                 
@@ -45,9 +41,9 @@
                        <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Rol.valid"></i>
                        <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Rol.invalid && UsuarioForm.controls.Rol.touched"></i>
          
-                       <select class="form-control" formControlName="Rol" id="Rol">
+                       <select class="form-control" formControlName="Rol" [(ngModel)]="Usuario.Rol" id="Rol">
                                <option value="">Seleccione ...</option>
-                               <option value="CL">Cliente</option>
+                               <option value="AD">Administrador</option>
                                <option value="CH">Chofer</option>
                                <option value="AS">Asistente</option>
                                
@@ -63,7 +59,7 @@
                            <i class="fa fa-check-circle check" *ngIf="UsuarioForm.controls.Estatus.valid"></i>
                            <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Estatus.invalid && UsuarioForm.controls.Estatus.touched"></i>
              
-                           <select class="form-control" formControlName="Estatus" id="Estatus">
+                           <select class="form-control" formControlName="Estatus" [(ngModel)]="Usuario.Estatus" id="Estatus">
                                    <option value="">Seleccione ...</option>
                                    <option value="A">Activo</option>
                                    <option value="I">Inactivo</option>
@@ -75,13 +71,10 @@
                   
                    </div>
           <hr>
-
-      
-      
           <div>
 
-              <button class="btn btn-primary  pull-right" type="submit" [disabled]="!UsuarioForm.valid">Guardar</button>
-              
+              <button class="btn btn-primary  pull-right" type="submit"  [disabled]="!UsuarioForm.valid">Guardar</button>
+              <a class="btn btn-danger" [routerLink]="['/UserL']" >Cancelar</a>
               <div class="alertsuccess" *ngIf="Resultado==false">
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                     No se puede llevar acabo la transaccion intente mas tarde

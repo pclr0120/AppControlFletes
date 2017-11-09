@@ -23,7 +23,7 @@ body{
 
   }
 .navbar, .dropdown-menu{
-background:rgba(243, 9, 9, 0.733);
+background:rgb(15, 6, 6);
 border: none;
 
 }
@@ -36,7 +36,7 @@ border: none;
   background: none;
 }
 .navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
- color: rgb(20, 13, 13);
+ color: rgb(231, 223, 223);
 }
 .dropdown-menu{
       -webkit-box-shadow: none;
@@ -69,6 +69,6 @@ border: none;
 }
 
 .navbar-toggle .icon-bar{
-    color: rgb(0, 0, 0);
+    color: rgb(247, 239, 239);
     background: rgb(17, 13, 13);
 }

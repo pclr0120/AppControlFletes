@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import{FormControl,FormGroup,FormBuilder,Validators}from '@angular/forms';
 import { MysqlService } from '../../../servicios/mysql.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-empleado',
@@ -13,9 +14,42 @@ export class EmpleadoComponent implements OnInit {
   Empleado:any;
   Resultado:boolean;
   Mostar:boolean;
+  fileBrowser:any;
+  url:any;
+  a:any;
   
-    constructor(private pf: FormBuilder, private mysql: MysqlService) { }
   
+    constructor(private pf: FormBuilder, private activatedRouter:ActivatedRoute, private router:Router,private mysql: MysqlService) { }
+  
+    readUrl(event:any) {
+      if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+    
+        reader.onload = (event:any) => {
+          this.url = event.target.result;
+        }
+    
+        reader.readAsDataURL(event.target.files[0]);
+        console.log('dentro',event.target.files[0]);
+        this.a=event.target.files[0]['name'];
+        console.log("dsad00",this.a);
+        
+        this.upload(event.target.result);
+        
+      }
+    }
+    upload(hola:any) {
+      this.fileBrowser = hola;
+      if (this.fileBrowser.files && this.fileBrowser.files[0]) {
+        const formData = new FormData();
+        formData.append("image", this.fileBrowser.files[0]);
+      //  this.projectService.upload(formData, this.project.id).subscribe(res => {
+          // do stuff w/my uploaded file
+        
+        //});
+      }
+    }
+   
     ngOnInit() {
   
       this.EmpleadoForm=this.pf.group({
@@ -26,12 +60,11 @@ export class EmpleadoComponent implements OnInit {
        RFC:['',[Validators.required,Validators.maxLength(13),Validators.minLength(13)]],
        
         FechaNacimiento:['',[Validators.required]],
-        //Foto:['',[Validators.required,Validators.maxLength(300)]],
+
         Puesto:['',[Validators.required,Validators.maxLength(30)]],
        Licencia:['',[Validators.required,Validators.maxLength(15)]],
        Telefono:['',[Validators.required,Validators.minLength(10)]],
-       // base:['',Validators.required],
-        // tipo:['',Validators.required],
+       Foto:[''],
         // iva:this.iva,
         // total:this.total
   
@@ -46,17 +79,20 @@ export class EmpleadoComponent implements OnInit {
     }
     onSubmit(){
     this.Empleado=this.saveEmpleado();
-    this.mysql.postUsuario(this.Empleado).subscribe(newpres => { 
+    this.Resultado=false;
+       this.mysql.postUsuario(this.Empleado).subscribe(newpres => { 
       this.Mostar=true;
-      if(newpres.success==false)
+      this.Resultado=false;
+      if(newpres.success==true)
        {
          this.EmpleadoForm.reset();
          this.Resultado=true;
+         this.router.navigate(['/EmpleadosL']);
          
        }else
         this.Resultado=false;
 
-    });
+    });  
    
   
       
@@ -71,15 +107,15 @@ export class EmpleadoComponent implements OnInit {
         Direccion:this.EmpleadoForm.get('Direccion').value,
        // Ciudad:this.EmpleadoForm.get('Ciudad').value,
         FechaNacimiento:this.EmpleadoForm.get('FechaNacimiento').value,
-        //Foto:this.EmpleadoForm.get('Foto').value,
+       
         
         //Estatus:this.EmpleadoForm.get('Estatus').value,
         Licencia:this.EmpleadoForm.get('Licencia').value,
         Telefono:this.EmpleadoForm.get('Telefono').value,
 
         Puesto:this.EmpleadoForm.get('Puesto').value,
-        RFC:this.EmpleadoForm.get('RFC').value
-        // tipo:this.EmpleadoForm.get('tipo').value,
+        RFC:this.EmpleadoForm.get('RFC').value,
+         Foto:this.a
         // iva:this.EmpleadoForm.get('iva').value,
         // base:this.EmpleadoForm.get('base').value,
         // total:this.EmpleadoForm.get('total').value

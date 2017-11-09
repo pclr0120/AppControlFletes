@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import {Headers,Http,Response}from '@angular/http';
 import 'rxjs/Rx';
 @Injectable()
-export class MysqlService {
-  presUrl='http://localhost:3000/empleados';
-  preURL='http://localhost:3000/empleados';
+export class MysqlVehiculoService {
+  presUrl='http://localhost:3000/vehiculo';
+  preURL='http://localhost:3000/vehiculo';
 
     constructor(private http:Http) { }
     data:any;
-    postUsuario(usuario: any){
-      console.log("servicio",usuario);
+    postdata(data: any){
+      console.log("servicio",data);
       
-      const newpres=JSON.stringify(usuario);
+      const newpres=JSON.stringify(data);
       const headers=new Headers({'Content-Type': 'application/json'});
       return this.http.post(this.presUrl,newpres,{headers}).map(res=>{
         console.log('servicio',res.json());
@@ -21,7 +21,7 @@ export class MysqlService {
       
       }
  
-      getUsuarios(){
+      getdatas(){
         try {
           return this.http.get(this.presUrl).map(res=>{ console.log('servicio',res.json());
           res.json();
@@ -36,7 +36,7 @@ export class MysqlService {
       
       
       }
-      getUsuario(id$: string ){
+      getdata(id$: string ){
         const url=`${this.preURL}/${id$}`;
         console.log(url);
         
@@ -47,8 +47,10 @@ export class MysqlService {
         });
          
       }
-      putUsuario(usuario: any, id$:string ){
-        const newpre=JSON.stringify(usuario);
+      putdata(data: any, id$:string ){
+        const newpre=JSON.stringify(data);
+        console.log("servidorFata",data);
+        
         const headers=new Headers({'Content-Type': 'application/json'});
         const url=`${this.preURL}/${id$}`;
         return this.http.put(url,newpre,{headers})
@@ -58,7 +60,7 @@ export class MysqlService {
   
       }
   
-      delUsuario(id$:string){
+      deldata(id$:string){
         const url=`${this.preURL}/${id$}`;
         return this.http.delete(url).map(res=>res.json());
   

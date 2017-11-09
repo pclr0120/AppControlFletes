@@ -2,6 +2,7 @@ import { Component,OnInit, ViewChild,DoCheck } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import{FormControl,FormGroup,FormBuilder,Validators}from '@angular/forms';
+import { MysqlUserService } from '../../servicios/mysql-user.service';
 
 @Component({
   selector: 'Login-app',
@@ -18,7 +19,8 @@ export class LoginComponent {
 
   LoginForm:FormGroup;
 Login:any;
-  constructor(private router:Router,private pf:FormBuilder){
+Usuario:any;
+  constructor(private router:Router,private pf:FormBuilder,private mysql: MysqlUserService){
 
  
   
@@ -43,26 +45,48 @@ Login:any;
         
       }
   onSubmit(){
-    
-          
-    this.login.User=this.formpro.value.User;
-    this.login.Password=this.formpro.value.Password;
-    if(this.login.User=="pclr@pclr.com")
-        if(this.login.Password=="123"){
-          this.router.navigate(['inicio']);
+    try {
+      this.Login=this.saveLogin();
       
-          localStorage.setItem('login','true');
-          this.Login=this.saveLogin();
+        this.mysql.getLog(this.Login.User)
+        .subscribe(Usuario=>{
+          console.log("dentro",Usuario);
+          this.Usuario=Usuario[0];
+     
           
-              this.LoginForm.reset();      
-            localStorage.setItem('user',JSON.stringify(this.login.User));
-            localStorage.setItem('pass',JSON.stringify(this.login.Password));
-            this.b=false;
-        }else{
-          this.b=true;
-          console.log(this.b);
-          
-        }
+         console.log(this.Login.pass);
+         
+         if(this.Usuario!=null)
+              if(this.Login.pass==this.Usuario.pass){
+                this.router.navigate(['inicio']);
+            
+                localStorage.setItem('login','true');
+              
+                
+                    this.LoginForm.reset();      
+                  localStorage.setItem('user',JSON.stringify(this.Login.User));
+                  localStorage.setItem('pass',JSON.stringify(this.Login.pass));
+                  this.b=false;
+              }else{
+                this.b=true;
+                console.log(this.b);
+                
+              }
+
+              else{
+                this.b=true;
+                console.log(this.b);
+
+
+              }
+        });
+    } catch (error) {
+      this.b=true;
+      console.log(this.b);
+    }
+    
+ 
+    
          
    
    
@@ -72,19 +96,19 @@ Login:any;
   saveLogin(){
     
         const saveLogin={
-          id:this.LoginForm.get('User').value,
-          articulol:this.LoginForm.get('Password').value,
+          User:this.LoginForm.get('User').value,
+          pass:this.LoginForm.get('Password').value,
  
         }
         return saveLogin;
       }
   ngDoCheck(){
-    if(this.login.User!="pclr@pclr.com")
-        if(this.login.Password!="123"){
+    // if(this.login.User!="pclr@pclr.com")
+    //     if(this.login.Password!="123"){
 
-            localStorage.setItem('login','false');
-            localStorage.clear();
+    //         localStorage.setItem('login','false');
+    //         localStorage.clear();
             
-           }
+    //        }
   }           
 }

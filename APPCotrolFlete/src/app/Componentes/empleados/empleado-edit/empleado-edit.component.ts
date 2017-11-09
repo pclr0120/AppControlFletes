@@ -12,25 +12,31 @@ export class EmpleadoEditComponent implements OnInit {
   id:string;
   empleado:any;
   EmpleadoForm:FormGroup;
-  Empleado:any;
+  Empleado:any[]=[];
+
   Resultado:boolean;
   Mostar:boolean;
   constructor(private pf: FormBuilder, private mysql: MysqlService, private router:Router,
     private activatedRouter:ActivatedRoute) {
-
+      
       this.activatedRouter.params
       .subscribe(parametros=>{
         this.id=parametros['id'];
+        console.log("dentroID",this.id);
         this.mysql.getUsuario(this.id)
-        .subscribe(empleado=>this.Empleado=empleado)
-       
-      
-        
+        .subscribe(Empleado=>{
+          console.log("dentro",Empleado[0]);
+          this.Empleado=Empleado[0];
+          console.log("dentro",this.empleado);
+          
+          
+        })
       });
   
-  
-    
+      
+   
    }
+  
 
    ngOnInit() {
     
@@ -61,7 +67,21 @@ export class EmpleadoEditComponent implements OnInit {
      
       }
       onSubmit(){
-      this.Empleado=this.saveEmpleado();
+    
+      this.empleado=this.saveEmpleado();
+      this.mysql.putUsuario(this.empleado,this.id).subscribe(newpres=>{
+    
+        if(newpres.data.msg=='success')
+        {
+          this.EmpleadoForm.reset();
+          console.log("inserto correctamente");
+          this.Resultado=true;
+          this.router.navigate(['/EmpleadosL']);
+
+        }else
+        this.Resultado=false;
+      
+      });
 
      
     
@@ -76,7 +96,7 @@ export class EmpleadoEditComponent implements OnInit {
           Curp:this.EmpleadoForm.get('Curp').value,
           Direccion:this.EmpleadoForm.get('Direccion').value,
          // Ciudad:this.EmpleadoForm.get('Ciudad').value,
-          FechaNacimiento:this.EmpleadoForm.get('FechaNacimiento').value,
+          FechaNacimiento:(this.EmpleadoForm.get('FechaNacimiento').value),
           //Foto:this.EmpleadoForm.get('Foto').value,
           
           //Estatus:this.EmpleadoForm.get('Estatus').value,

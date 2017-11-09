@@ -11,15 +11,15 @@
               <label class="simple" for="Nombre">Nombre</label>
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Nombre.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Nombre.invalid && EmpleadoForm.controls.Nombre.touched"></i>
-              <input type="text" formControlName="Nombre" id="Nombre" class="form-control" placeholder="Nombre" required autofocus>
+              <input type="text" formControlName="Nombre" id="Nombre" class="form-control" [(ngModel)]="Empleado.Nombre" placeholder="Nombre" >              
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Nombre.invalid && EmpleadoForm.controls.Nombre.touched">El campo es obligatorio (minimo 10 caracteres)</p>
-          </div>
+            </div>
           <div class="form-group">
               <label class="simple" for="Email">Email</label>
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Email.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Email.invalid && EmpleadoForm.controls.Email.touched"></i>
 
-              <input type="Email" formControlName="Email" id="Email" class="form-control" placeholder="Email" required email>
+              <input type="Email" formControlName="Email" id="Email" class="form-control" [(ngModel)]="Empleado.Email" placeholder="Email" required email>
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Email.invalid && EmpleadoForm.controls.Email.touched">El campo es obligatorio</p>
 
           </div>
@@ -28,7 +28,7 @@
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.RFC.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.RFC.invalid && EmpleadoForm.controls.Curp.touched"></i>
 
-              <input type="text" formControlName="RFC" id="RFC" class="form-control" placeholder="RFC">
+              <input type="text" formControlName="RFC" id="RFC" class="form-control" [(ngModel)]="Empleado.RFC" placeholder="RFC">
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.RFC.invalid && EmpleadoForm.controls.RFC.touched">El campo es obligatorio(El campo debe contener 13 caracteres)</p>
 
           </div>
@@ -37,7 +37,7 @@
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Curp.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Curp.invalid && EmpleadoForm.controls.Curp.touched"></i>
 
-              <input type="text" formControlName="Curp" id="Curp" class="form-control" placeholder="Curp">
+              <input type="text" formControlName="Curp" id="Curp" class="form-control" [(ngModel)]="Empleado.Curp" placeholder="Curp">
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Curp.invalid && EmpleadoForm.controls.Curp.touched">El campo es obligatorio(El campo debe contener 18 caracteres)</p>
 
           </div>
@@ -46,7 +46,7 @@
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Direccion.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Direccion.invalid && EmpleadoForm.controls.Direccion.touched"></i>
 
-              <input type="text" formControlName="Direccion" id="Direccion" class="form-control" placeholder="Direccion">
+              <input type="text" formControlName="Direccion" id="Direccion" class="form-control" [(ngModel)]="Empleado.Domicilio" placeholder="Direccion">
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Direccion.invalid && EmpleadoForm.controls.Direccion.touched">El campo es obligatorio(Maximo de caracteres 50)</p>
 
           </div>
@@ -55,7 +55,7 @@
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.FechaNacimiento.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.FechaNacimiento.invalid && EmpleadoForm.controls.FechaNacimiento.touched"></i>
 
-              <input type="date" formControlName="FechaNacimiento" id="FechaNacimiento" class="form-control" placeholder="FechaNacimiento"
+              <input type="date" formControlName="FechaNacimiento" id="FechaNacimiento" class="form-control" [(ngModel)]="Empleado.FechaNacimiento" placeholder="FechaNacimiento"
                   >
 
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.FechaNacimiento.invalid && EmpleadoForm.controls.FechaNacimiento.touched">El campo es obligatorio</p>
@@ -68,7 +68,7 @@
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Licencia.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Licencia.invalid && EmpleadoForm.controls.Licencia.touched"></i>
 
-              <input type="text" formControlName="Licencia" id="Licencia" class="form-control" placeholder="Licencia">
+              <input type="text" formControlName="Licencia" id="Licencia" class="form-control" [(ngModel)]="Empleado.Licencia" placeholder="Licencia">
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Licencia.invalid && EmpleadoForm.controls.Licencia.touched">El campo es obligatorio</p>
               
           </div>
@@ -77,7 +77,7 @@
               <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Telefono.valid"></i>
               <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Telefono.invalid && EmpleadoForm.controls.Telefono.touched"></i>
 
-              <input type="number" formControlName="Telefono" id="Telefono" class="form-control" placeholder="Telefono" required number>
+              <input type="number" formControlName="Telefono" id="Telefono" class="form-control" placeholder="Telefono" [(ngModel)]="Empleado.Telefono" required number>
               <p class="alert alert-danger" *ngIf="EmpleadoForm.controls.Telefono.invalid && EmpleadoForm.controls.Telefono.touched">El campo es obligatorio (10 caracteres maximo)</p>
               
           </div>
@@ -87,7 +87,7 @@
                      <i class="fa fa-check-circle check" *ngIf="EmpleadoForm.controls.Puesto.valid"></i>
                      <i class="fa fa-exclamation-circle uncheck " *ngIf="EmpleadoForm.controls.Puesto.invalid && EmpleadoForm.controls.Puesto.touched"></i>
        
-                     <select class="form-control" formControlName="Puesto" id="Puesto">
+                     <select class="form-control" formControlName="Puesto" [(ngModel)]="Empleado.Puesto" id="Puesto">
                              <option value="">Seleccione ...</option>
                              <option value="Chofer">Empleado</option>
                              <option value="Asistente">Temporal</option>
@@ -136,8 +136,16 @@
           <div>
 
               <button class="btn btn-primary  pull-right" type="submit" [disabled]="!EmpleadoForm.valid">Guardar</button>
-              <a class="btn btn-danger" [routerLink]="['/EmpladosL']" >Cancelar</a>
-
+              <a class="btn btn-danger" [routerLink]="['/EmpleadosL']" >Cancelar</a>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="UsuarioForm.controls.Password.invalid && UsuarioForm.controls.Password.touched"></i>
+              <div class="alert" *ngIf="Resultado==false">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    No se puede llevar acabo la transaccion intente mas tarde
+                  </div>
+                  <div class="alertsuccess" *ngIf="Resultado==true">
+                      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                     Registro eliminado correctamente
+                    </div>              
           </div>
 
       </form>

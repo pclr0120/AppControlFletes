@@ -17,19 +17,28 @@ export class MunuUsuarioComponent implements OnInit, OnChanges {
   
     
    }
+   user:string;
+   pass:string;
  ngDoCheck(){
-
-  let user=JSON.parse(localStorage.getItem('user'));
-  let pass=JSON.parse(localStorage.getItem('pass'));
-  if(user=='pclr@pclr.com' && pass=='123'){
- 
+try {
+  this.user=JSON.parse(localStorage.getItem('user'));
+  this.pass=JSON.parse(localStorage.getItem('pass'));
+  if(this.user!=null)
       this.Login=true;
-   
+   else 
+    this.Login=false;
+} catch (error) {
+  if(this.user!=null)
+  this.Login=true;
+else 
+this.Login=false;
+  
+}
+
      
       
   
-  }else
-       this.Login=false;
+
 
 
 

@@ -1,19 +1,42 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MysqlVehiculoService } from '../../servicios/mysql-vehiculo.service';
-@Component({
-  selector: 'app-vehiculos',
-  templateUrl: './vehiculos.component.html',
-  styleUrls: ['./vehiculos.component.css']
-})
-export class VehiculosComponent implements OnInit {
+import { MysqlVehiculoService } from '../../../servicios/mysql-vehiculo.service';
 
-  constructor(private pf: FormBuilder,private activatedRouter:ActivatedRoute, private router:Router, private mysql: MysqlVehiculoService) { }
+@Component({
+  selector: 'app-vehiculo-edit',
+  templateUrl: './vehiculo-edit.component.html',
+  styleUrls: ['./vehiculo-edit.component.css']
+})
+export class VehiculoEditComponent implements OnInit {
+
+  constructor(private pf: FormBuilder,private activatedRouter:ActivatedRoute, private router:Router, private mysql: MysqlVehiculoService) { 
+
+
+    this.activatedRouter.params
+    .subscribe(parametros=>{
+      this.id=parametros['id'];
+      console.log("dentroID",this.id);
+      this.mysql.getdata(this.id)
+      .subscribe(Vehiculo=>{
+        console.log("dentro1",Vehiculo[0]);
+        this.Vehiculo=Vehiculo[0];
+    
+        
+        
+      })
+    });
+  }
   frm:FormGroup;
   vehiculo:any;
+  Vehiculo:any[]=[];
   s: string;
+
+  id:string;
+
+
   Resultado:boolean;
+  Mostar:boolean;
   ngOnInit() {
 
     this.frm=this.pf.group({
@@ -28,8 +51,8 @@ export class VehiculosComponent implements OnInit {
       KmRecorrido:['',[Validators.required,Validators.maxLength(10)]],
       Estatus:['',Validators.required],
       Poliza:['',[Validators.required,Validators.maxLength(20)]],
-      FechaRegistro:['',Validators.required],
-      FechaVencimiento:['',Validators.required],
+      FechaRR:['',Validators.required],
+      FechaV:['',Validators.required],
       Fotos:[''],
       NumProv:['',[Validators.required,Validators.maxLength(10)]],
       KmRecorridoM:['',[Validators.required,Validators.maxLength(10)]]
@@ -41,18 +64,19 @@ export class VehiculosComponent implements OnInit {
   }
   onSubmit(){
     
-      this.vehiculo = this.saveVehiculo();
-      this.mysql.postdata(this.vehiculo).subscribe(newpres => { 
-        this.Resultado=false;
-        if(newpres.success==true )
+      this.vehiculo=this.saveVehiculo();
+      this.mysql.putdata(this.vehiculo,this.id).subscribe(newpres=>{
+    
+        if(newpres.data.msg=='success')
         {
           this.frm.reset();
           console.log("inserto correctamente");
           this.Resultado=true;
-         // this.router.navigate(['/UserL']);
+          this.router.navigate(['/VehiculoL']);
+
         }else
         this.Resultado=false;
-
+      
       });
       
      
@@ -75,17 +99,12 @@ export class VehiculosComponent implements OnInit {
             KmRecorrido:this.frm.get('KmRecorrido').value,
             Estatus:this.frm.get('Estatus').value,
             Poliza:this.frm.get('Poliza').value,
-            FechaRegistro:this.frm.get('FechaRegistro').value,
-            FechaVencimiento:this.frm.get('FechaVencimiento').value,
+            FechaRR:this.frm.get('FechaRR').value,
+            FechaV:this.frm.get('FechaV').value,
             NumProv:this.frm.get('NumProv').value
             ,            KmRecorridoM:this.frm.get('KmRecorridoM').value
             
-            
-            // cp:this.facturaForm.get('cp').value,
-            // tipo:this.facturaForm.get('tipo').value,
-            // iva:this.facturaForm.get('iva').value,
-            // base:this.facturaForm.get('base').value,
-            // total:this.facturaForm.get('total').value
+
           }
           return saveVehiculo;
         }

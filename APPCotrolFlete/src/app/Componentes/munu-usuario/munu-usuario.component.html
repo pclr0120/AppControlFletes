@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav navbar-right "  >
     <li *ngIf="!Login"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span>Log-in..<span></span></a></li>
-    <li *ngIf="Login" ><a [routerLink]="['/login']"><span class="glyphicon glyphicon-user ICONO"></span>PCLR<span></span></a></li>
+    <li *ngIf="Login" ><a [routerLink]="['/login']"><span class="glyphicon glyphicon-user ICONO"></span>{{user}}<span></span></a></li>
     <li *ngIf="Login" ><a [routerLink]="['/LogOut']"><span class="glyphicon glyphicon-log-out SALIR"></span>Log-Out<span></span></a></li>
 </ul>

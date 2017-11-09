@@ -1,9 +1,10 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MysqlService } from '../../servicios/mysql.service';
+import { MysqlUserService } from '../../servicios/mysql-user.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
-  selector: 'app-usuario-post',
   templateUrl: './usuario-post.component.html',
+  selector: 'app-usuario-post',
   styleUrls: ['./usuario-post.component.css']
 })
 export class UsuarioPostComponent implements OnInit {
@@ -15,7 +16,8 @@ export class UsuarioPostComponent implements OnInit {
   NeFound: boolean;
   NeVal: boolean;
   s: string;
-  constructor(private pf: FormBuilder, private mysql: MysqlService) {
+  Resultado:boolean;
+  constructor(private pf: FormBuilder,private activatedRouter:ActivatedRoute, private router:Router, private mysql: MysqlUserService) {
 
     this.mysql.getUsuarios().
       subscribe(usuario => {
@@ -32,40 +34,11 @@ export class UsuarioPostComponent implements OnInit {
 
 
   }
+
+
+  
   ngDoCheck() {
 
-    try {
-      if (this.UsuarioForm.get('Tipo').value == "EMP") {
-        this.NEBander = true;
-
-
-      } else
-        this.NEBander = false;
-
-      if (this.UsuarioForm.get('NE').value == "123456") {
-        this.NeFound = true;
-
-
-
-      } else
-        this.NeFound = false;
-
-
-
-
-
-
-
-      if (String(this.UsuarioForm.get('NE').value).length > 5) {
-        this.NeVal = true;
-      } else {
-        this.NeVal = false;
-      }
-
-
-    } catch (error) {
-
-    }
 
 
 
@@ -73,12 +46,15 @@ export class UsuarioPostComponent implements OnInit {
   ngOnInit() {
 
     this.UsuarioForm = this.pf.group({
-
-      Tipo: ['', [Validators.required, Validators.maxLength(50)]],
-      NE: ['', [Validators.minLength(6)]],
+      NE: ['', [Validators.required, Validators.maxLength(6)]],
+      
       Usuario: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
-      Password: ['', [Validators.required, Validators.minLength(6)]]
-
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+      Rol: ['', [Validators.required, Validators.minLength(2)]],
+      Estatus: ['', [Validators.required, Validators.minLength(1)]]
+      
+      
+      
 
 
     });
@@ -100,9 +76,20 @@ export class UsuarioPostComponent implements OnInit {
   onSubmit() {
     try {
       this.Usuario = this.saveUsuario();
-      this.mysql.postUsuario(this.Usuario).subscribe(newpres => { })
-      this.UsuarioForm.reset();
-      console.log("inserto correctamente");
+      this.mysql.postUsuario(this.Usuario).subscribe(newpres => { 
+        this.Resultado=false;
+        if(newpres.success==true )
+        {
+          this.UsuarioForm.reset();
+          console.log("inserto correctamente");
+          this.Resultado=true;
+          this.router.navigate(['/UserL']);
+        }else
+        this.Resultado=false;
+
+      });
+      
+     
 
     } catch (e) {
 
@@ -115,10 +102,15 @@ export class UsuarioPostComponent implements OnInit {
     const saveUsuario = {
       Usuario: this.UsuarioForm.get('Usuario').value,
       NE: this.UsuarioForm.get('NE').value,
-      Tipo: this.UsuarioForm.get('Tipo').value,
 
-      Password: this.UsuarioForm.get('Password').value
+      Password: this.UsuarioForm.get('Password').value,
+      Rol:this.UsuarioForm.get('Rol').value,
+      Estatus:this.UsuarioForm.get('Estatus').value
+      
 
+     
+      
+      
     }
     return saveUsuario;
   }

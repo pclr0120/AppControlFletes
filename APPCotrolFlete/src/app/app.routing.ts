@@ -21,7 +21,13 @@ import { WebHomeComponent } from './Modulos/pagina-web-cliente/componentes/web-h
 import { UsuarioPostComponent } from './usuarios/usuario-post/usuario-post.component';
 import { EmpleadoListaComponent } from './Componentes/empleados/empleado-lista/empleado-lista.component';
 import { EmpleadoEditComponent } from './Componentes/empleados/empleado-edit/empleado-edit.component';
+import { UserLComponent } from './usuarios/user-l/user-l.component'; 
+import { UserEditComponent } from './usuarios/user-edit/user-edit.component'; 
+import { VehiculoEditComponent } from './Componentes/vehiculos/vehiculo-edit/vehiculo-edit.component';
+import { VehiculosHOMEComponent } from './Componentes/vehiculos-home/vehiculos-home.component';
+import { UsuarioHomeComponent } from './usuarios/usuario-home/usuario-home.component';
 
+import { VehiculoLComponent } from './Componentes/vehiculos/vehiculo-l/vehiculo-l.component';
 
 const appRoutes:Routes=[
     {path:'',component:InicioComponent},
@@ -36,7 +42,13 @@ const appRoutes:Routes=[
     {path:'HomeProveedor',component:HomeProveedorComponent},
     {path:'OlvideMiPassword',component:OlvideMiPasswordComponent},
     {path:'LogOut',component:LogOutComponent},
+
     {path:'Vehiculos',component:VehiculoComponent},
+    {path:'VehiculoEdit/:id',component:VehiculoEditComponent},
+    {path:'VehiculosH',component:VehiculosHOMEComponent},
+    
+    {path:'VehiculoL',component:VehiculoLComponent},
+    
     {path:'Empleados',component:EmpleadoHomeComponent},
     {path:'EmpleadosR',component:EmpleadoComponent},
     {path:'EmpleadosL',component:EmpleadoListaComponent},
@@ -47,7 +59,11 @@ const appRoutes:Routes=[
     {path:'ViajesC',component:ViajeConsultarComponent}
     ,
     {path:'WebHome',component:WebHomeComponent},
-    {path:'UserPost',component:UsuarioPostComponent}
+    {path:'UserPost',component:UsuarioPostComponent},
+    {path:'UserL',component:UserLComponent},
+    {path:'UserEdit/:id',component:UserEditComponent},
+    {path:'UserH',component:UsuarioHomeComponent}
+    
     
 
 ];

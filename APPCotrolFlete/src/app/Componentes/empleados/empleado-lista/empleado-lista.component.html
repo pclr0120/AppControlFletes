@@ -1,7 +1,8 @@
 <div class=" card card-container row">
-  
-<h3>Listado de empleados</h3>
-<a class="btn btn-primary float-md-right" [routerLink]="['/EmpleadosR']" >Añadir nuevo empleado</a>
+  <hr>
+    <a class="btn btn-primary float-md-right" [routerLink]="['/EmpleadosR']" >Añadir nuevo empleado</a>
+    <hr>
+<h3 class="Titulo">Listado de empleados</h3>
 
 <br>
 
@@ -9,7 +10,9 @@
 
   <thead>
     <tr class="filters simple">
-      <th>Nombre</th>
+     
+        <th><input type="text" name="Nombre" [(ngModel)]="Buscar.Nombre" placeholder="Nombre"><i class="fa fa-search" aria-hidden="true"></i></th>
+        
       <th>Email</th>
       <th>Puesto</th>
       <th>RFC</th>
@@ -21,7 +24,8 @@
 
   </thead>
   <tbody>
-      <tr *ngFor="let empleado of empleados" class="detalle">
+      <tr *ngFor="let empleado of empleados| Buscador:Buscar" class="detalle">
+       
         <td>{{empleado.Nombre}}</td>
         <td>{{empleado.Email}}</td>
         <td>{{empleado.Puesto}}</td>
@@ -29,13 +33,21 @@
         <td>{{empleado.CURP}}</td>
         <td>{{empleado.Domicilio}}</td>
         <td>
-          <button type="button" class="btn btn-success  fa fa-pencil"  [routerLink]="['/EmpleadosEdit/', empleados.id$]" ></button>
-          <button type="button" class="btn btn-danger fa fa-trash-o"  (click)="eliminarempleado(empleado.id$)" ></button>
+          <button type="button" class="btn btn-success  fa fa-pencil"  [routerLink]="['/EmpleadosEdit/', empleado.Id]" >Detalle</button>
+          <button type="button" class="btn btn-danger fa fa-trash-o"  [routerLink]="['/EmpleadosL']" (click)="eliminarEmpleado(empleado.Id)" ></button>
           
         </td>
       
       </tr>
     </tbody>
 </table>
+<div class="alertsuccess" *ngIf="Resultado==false">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    No se puede llevar acabo la transaccion intente mas tarde
+  </div>
+  <div class="alertsuccess" *ngIf="Resultado==true">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+     Registro eliminado correctamente
+    </div>
 
 </div>

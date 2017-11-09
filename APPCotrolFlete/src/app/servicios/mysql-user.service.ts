@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import {Headers,Http,Response}from '@angular/http';
 import 'rxjs/Rx';
 @Injectable()
-export class MysqlService {
-  presUrl='http://localhost:3000/empleados';
-  preURL='http://localhost:3000/empleados';
+export class MysqlUserService {
+  presUrl='http://localhost:3000/Users';
+  preURL='http://localhost:3000/Users';
 
     constructor(private http:Http) { }
     data:any;
@@ -47,10 +47,23 @@ export class MysqlService {
         });
          
       }
+      getLog(id$: string ){
+        const url=`${this.preURL}/Log/${id$}`;
+        console.log(url);
+        
+        return this.http.get(url).map(res=>{ console.log('servicio',res.json());
+         res.json();
+          return res.json();
+          
+        });
+         
+      }
       putUsuario(usuario: any, id$:string ){
         const newpre=JSON.stringify(usuario);
         const headers=new Headers({'Content-Type': 'application/json'});
         const url=`${this.preURL}/${id$}`;
+        console.log('servicio:',usuario);
+        
         return this.http.put(url,newpre,{headers})
         .map(res=>{console.log(res.json())
         return res.json();
@@ -63,5 +76,4 @@ export class MysqlService {
         return this.http.delete(url).map(res=>res.json());
   
       }
-
 }

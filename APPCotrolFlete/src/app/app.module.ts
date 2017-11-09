@@ -39,7 +39,15 @@ import { UsuarioPostComponent } from './usuarios/usuario-post/usuario-post.compo
 import {MysqlService}from '../app/servicios/mysql.service'; 
 import {HttpModule} from '@angular/http';
 import { EmpleadoEditComponent } from './Componentes/empleados/empleado-edit/empleado-edit.component';
+import {MysqlUserService}from '../app/servicios/mysql-user.service';
+import { UserLComponent } from './usuarios/user-l/user-l.component';
+import { UserEditComponent } from './usuarios/user-edit/user-edit.component'; 
 
+import { BuscadorPipe } from './BuscadorPipe/Buscador.pipe';
+import {MysqlVehiculoService}from '../app/servicios/mysql-vehiculo.service';
+import { VehiculoLComponent } from './Componentes/vehiculos/vehiculo-l/vehiculo-l.component';
+import { VehiculoEditComponent } from './Componentes/vehiculos/vehiculo-edit/vehiculo-edit.component';
+import { UsuarioHomeComponent } from './usuarios/usuario-home/usuario-home.component';
 
 
 
@@ -53,12 +61,13 @@ import { EmpleadoEditComponent } from './Componentes/empleados/empleado-edit/emp
       VehiculosComponent, VehiculoComponent, VehiculosHOMEComponent, EmpleadoComponent, EmpleadoHomeComponent, 
       ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent,
        MenuBotonesComponent, WebHomeComponent, 
-    WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent, EmpleadoEditComponent
+    WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent, EmpleadoEditComponent, UserLComponent, 
+    UserEditComponent,BuscadorPipe, VehiculoLComponent, VehiculoEditComponent, UsuarioHomeComponent
   ],
   imports: [
     BrowserModule , FormsModule,routing,ReactiveFormsModule,HttpModule
   ],
-  providers: [appRoutingProviders,MysqlService],
+  providers: [appRoutingProviders,MysqlService,MysqlUserService,MysqlVehiculoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
