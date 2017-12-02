@@ -28,6 +28,14 @@ import { VehiculosHOMEComponent } from './Componentes/vehiculos-home/vehiculos-h
 import { UsuarioHomeComponent } from './usuarios/usuario-home/usuario-home.component';
 
 import { VehiculoLComponent } from './Componentes/vehiculos/vehiculo-l/vehiculo-l.component';
+import { ClienteRComponent } from './cliente/cliente-r/cliente-r.component';
+import { ClienteLComponent } from './cliente/cliente-l/cliente-l.component';
+import { ClienteHComponent } from './cliente/cliente-h/cliente-h.component';
+import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.component';
+import { RemolqueRComponent } from './Componentes/remolques/remolque-r/remolque-r.component';
+import { RemolqueLComponent } from './componentes/remolques/remolque-l/remolque-l.component';
+import { RemolqueEditComponent } from './componentes/remolques/remolque-edit/remolque-edit.component';
+import { RemolqueHomeComponent } from './componentes/remolques/remolque-home/remolque-home.component';
 
 const appRoutes:Routes=[
     {path:'',component:InicioComponent},
@@ -62,7 +70,20 @@ const appRoutes:Routes=[
     {path:'UserPost',component:UsuarioPostComponent},
     {path:'UserL',component:UserLComponent},
     {path:'UserEdit/:id',component:UserEditComponent},
-    {path:'UserH',component:UsuarioHomeComponent}
+    {path:'UserH',component:UsuarioHomeComponent},
+
+    {path:'ClienteR',component:ClienteRComponent},
+        {path:'ClienteL',component:ClienteLComponent},
+        {path:'ClienteH',component:ClienteHComponent}
+                ,        {path:'ClienteEdit/:id',component:ClienteEditComponent}
+                ,        {path:'RemolqueR',component:RemolqueRComponent}
+           
+                ,        {path:'RemolqueL',component:RemolqueLComponent}
+                ,        {path:'RemolqueEdit/:id',component:RemolqueEditComponent}
+                ,        {path:'RemolqueHome',component:RemolqueHomeComponent}
+                
+                        
+        
     
     
 

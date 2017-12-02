@@ -13,6 +13,7 @@ export class Coleccion {
   userrr: String;
   Nombre: String;
   Marca: String;
+  Numero: String;
   
 
   /**

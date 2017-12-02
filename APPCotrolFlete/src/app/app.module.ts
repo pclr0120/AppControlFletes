@@ -48,10 +48,19 @@ import {MysqlVehiculoService}from '../app/servicios/mysql-vehiculo.service';
 import { VehiculoLComponent } from './Componentes/vehiculos/vehiculo-l/vehiculo-l.component';
 import { VehiculoEditComponent } from './Componentes/vehiculos/vehiculo-edit/vehiculo-edit.component';
 import { UsuarioHomeComponent } from './usuarios/usuario-home/usuario-home.component';
+import { ClienteRComponent } from './cliente/cliente-r/cliente-r.component';
+import {ClienteService}from '../app/servicios/cliente.service';
+import { ClienteLComponent } from './cliente/cliente-l/cliente-l.component';
+import { ClienteHComponent } from './cliente/cliente-h/cliente-h.component';
 
-
-
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.component';
+import { RemolqueRComponent } from './Componentes/remolques/remolque-r/remolque-r.component';
+import {RemolqueService}from '../app/servicios/remolque.service';
+import { RemolqueLComponent } from './componentes/remolques/remolque-l/remolque-l.component';
+import { RemolqueEditComponent } from './componentes/remolques/remolque-edit/remolque-edit.component';
+import { RemolqueHomeComponent } from './componentes/remolques/remolque-home/remolque-home.component';
+import {ViajeService}from '../app/servicios/viaje.service';
 @NgModule({
   declarations: [
     AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, 
@@ -62,12 +71,12 @@ import { UsuarioHomeComponent } from './usuarios/usuario-home/usuario-home.compo
       ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent,
        MenuBotonesComponent, WebHomeComponent, 
     WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent, EmpleadoEditComponent, UserLComponent, 
-    UserEditComponent,BuscadorPipe, VehiculoLComponent, VehiculoEditComponent, UsuarioHomeComponent
+    UserEditComponent,BuscadorPipe, VehiculoLComponent, VehiculoEditComponent, UsuarioHomeComponent, ClienteRComponent, ClienteLComponent, ClienteHComponent, ClienteEditComponent, RemolqueRComponent, RemolqueLComponent, RemolqueEditComponent, RemolqueHomeComponent
   ],
-  imports: [
+  imports: [NgbModule,
     BrowserModule , FormsModule,routing,ReactiveFormsModule,HttpModule
   ],
-  providers: [appRoutingProviders,MysqlService,MysqlUserService,MysqlVehiculoService],
+  providers: [appRoutingProviders,MysqlService,MysqlUserService,MysqlVehiculoService,ClienteService,RemolqueService,ViajeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

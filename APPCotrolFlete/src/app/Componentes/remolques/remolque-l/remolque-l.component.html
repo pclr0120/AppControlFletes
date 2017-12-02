@@ -1,0 +1,67 @@
+<div class=" card card-container row">
+    
+  <h3 class="Titulo">Listado de Remolques</h3>
+  <a class="btn btn-primary float-md-right" [routerLink]="['/RemolqueR']" >Añadir nuevo Remolque</a>
+  
+  <br>
+  
+  <table class="table table-bordered table-striped tabla" style="margin-top:40px;">
+  
+    <thead>
+      <tr class="filters simple">
+       
+          <th><input  type="text" name="Numero" [(ngModel)]="Buscar.Numero" placeholder="Numero Chasis"><i class="fa fa-search" aria-hidden="true"></i></th>
+          
+       
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Tipo</th>
+        <th>CapacidadCarga</th>
+        <th>Estatus</th>
+        <th>Fecha de Registro</th>
+      
+   
+      
+        
+        
+        <th>Controles</th>
+  
+      </tr>
+  
+    </thead>
+    <tbody>
+        <tr *ngFor="let Datas of Data|Buscador:Buscar" class="detalle">
+         
+   
+            <td>{{Datas.NumeroChasis}}</td>
+          <td>{{Datas.Marca}}</td>
+          <td>{{Datas.Modelo}}</td>
+          <td>{{Datas.Tipo}}</td>
+          <td>{{Datas.CapacidadCarga}}</td>
+          <td>{{Datas.Estatus}}</td>
+          <td>{{Datas.FechaRegistro}}</td>
+   
+       
+     
+         
+      
+          
+          <td>
+            <button type="button" class="btn btn-success  fa fa-pencil"  [routerLink]="['/RemolqueEdit/', Datas.Id]" >Detalle</button>
+            <button type="button" class="btn btn-danger fa fa-trash-o"  [routerLink]="['/RemolqueL']" (click)="eliminar(Datas.Id)" ></button>
+            
+          </td>
+        
+        </tr>
+      </tbody>
+  </table>
+  <div class="alertsuccess" *ngIf="Resultado==false">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      No se puede llevar acabo la transaccion intente mas tarde
+    </div>
+    <div class="alertsuccess" *ngIf="Resultado==true">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+       Registro eliminado correctamente
+      </div>
+  
+  </div>

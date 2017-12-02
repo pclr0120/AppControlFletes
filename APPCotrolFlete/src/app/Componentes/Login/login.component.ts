@@ -24,7 +24,7 @@ Usuario:any;
 
  
   
-    
+
     this.title="Login"
     this.login={
       User:'',
@@ -105,7 +105,6 @@ Usuario:any;
   ngDoCheck(){
     // if(this.login.User!="pclr@pclr.com")
     //     if(this.login.Password!="123"){
-
     //         localStorage.setItem('login','false');
     //         localStorage.clear();
             

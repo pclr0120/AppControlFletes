@@ -1,0 +1,135 @@
+<div class=" card card-container row">
+  <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+
+
+<hr>          
+      <h2 class="Titulo">ACTUALIZAR REMOLQUE</h2>
+      <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+       
+          <div class="form-group">
+              <label class="simple" for="Marca">Marca</label>
+              <i class="fa fa-check-circle check" *ngIf="frm.controls.Marca.valid"></i>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Marca.invalid && frm.controls.Marca.touched"></i>
+              <input type="text" formControlName="Marca" id="Marca" class="form-control" placeholder="Marca" [(ngModel)]="Vehiculo.Marca" >              
+              <p class="alert alert-danger" *ngIf="frm.controls.Marca.invalid && frm.controls.Marca.touched">El campo es obligatorio (Maximo 50 caracteres)</p>
+            </div>
+          <div class="form-group">
+              <label class="simple" for="Modelo">Modelo</label>
+              <i class="fa fa-check-circle check" *ngIf="frm.controls.Modelo.valid"></i>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Modelo.invalid && frm.controls.Modelo.touched"></i>
+
+              <input type="Modelo" formControlName="Modelo" id="Modelo" class="form-control"  placeholder="Modelo" [(ngModel)]="Vehiculo.Modelo" required >
+              <p class="alert alert-danger" *ngIf="frm.controls.Modelo.invalid && frm.controls.Modelo.touched">El campo es obligatorio(Maximo 50 caracteres) </p>
+
+          </div>
+          <div class="form-group">
+                  <label class="simple" for="Anio">Año</label>
+                  <i class="fa fa-check-circle check" *ngIf="frm.controls.Anio.valid"></i>
+                  <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Anio.invalid && frm.controls.Anio.touched"></i>
+    
+                  <input type="date" formControlName="Anio" id="Anio" class="form-control"  placeholder="Año" [(ngModel)]="Vehiculo.Anio" required >
+                  <p class="alert alert-danger" *ngIf="frm.controls.Anio.invalid && frm.controls.Anio.touched">El campo es obligatorio</p>
+    
+              </div>
+          
+          <div class="form-group">     
+                  
+                         <label  class="simple" for="Tipo">Tipo: </label>
+                         <i class="fa fa-check-circle check" *ngIf="frm.controls.Tipo.valid"></i>
+                         <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Tipo.invalid && frm.controls.Tipo.touched"></i>
+           
+                         <select class="form-control" formControlName="Tipo" [(ngModel)]="Vehiculo.Tipo" id="Tipo">
+                                 <option value="">Seleccione ...</option>
+                                 <option value="CamionCarga">Camion de carga</option>
+                                 <option value="Automovil">Automovil</option>
+                                 <option value="Pikup">Pikup</option>
+                                 <option value="Asistente">Asistente de carga</option>
+                                 
+                                 
+                                 
+                         </select>
+                         <p class="alert alert-danger" *ngIf="frm.controls.Tipo.invalid && frm.controls.Tipo.touched">Es obligatorio seleccionar un Tipo</p>
+                         
+                   
+                
+                 </div>
+          <div class="form-group">
+              <label class="simple" for="NumeroChasis">NumeroChasis</label>
+              <i class="fa fa-check-circle check" *ngIf="frm.controls.NumeroChasis.valid"></i>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.NumeroChasis.invalid && frm.controls.NumeroChasis.touched"></i>
+
+              <input type="text" formControlName="NumeroChasis" id="NumeroChasis" class="form-control"  placeholder="NumeroChasis" [(ngModel)]="Vehiculo.NumeroChasis" disabled>
+              <p class="alert alert-danger" *ngIf="frm.controls.NumeroChasis.invalid && frm.controls.NumeroChasis.touched">El campo es obligatorio(Maximo 50 caracteres)</p>
+
+          </div>
+
+          <div class="form-group">
+              <label class="simple" for="CapacidadCarga">Capacidad de Carga</label>
+              <i class="fa fa-check-circle check" *ngIf="frm.controls.CapacidadCarga.valid"></i>
+              <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.CapacidadCarga.invalid && frm.controls.CapacidadCarga.touched"></i>
+
+              <input type="text" formControlName="CapacidadCarga" id="CapacidadCarga" class="form-control" [(ngModel)]="Vehiculo.CapacidadCarga" placeholder="Toneladas">
+              <p class="alert alert-danger" *ngIf="frm.controls.CapacidadCarga.invalid && frm.controls.CapacidadCarga.touched">El campo es obligatorio(Maximo de caracteres 10)</p>
+
+          </div>
+          <hr>
+          <div class="form-group">
+                  <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                      alt="">
+                  <a class="profile-img">Clic para seleccionar la imagen</a>
+              </div>
+              <hr>
+          
+        
+
+   
+       
+          <div class="form-group">     
+                  
+                         <label  class="simple" for="Estatus">Estatus: </label>
+                         <i class="fa fa-check-circle check" *ngIf="frm.controls.Estatus.valid"></i>
+                         <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Estatus.invalid && frm.controls.Estatus.touched"></i>
+           
+                         <select class="form-control" formControlName="Estatus" [(ngModel)]="Vehiculo.Estatus" id="Estatus">
+                                 <option value="">Seleccione ...</option>
+                                 <option value="A">ACTIVO</option>
+                                 <option value="B">BAJA</option>
+                                 <option value="S">EN SERVICIO</option>
+                                 <option value="R">EN REPARACION</option>
+                                 
+                                 
+                                 
+                         </select>
+                         <p class="alert alert-danger" *ngIf="frm.controls.Estatus.invalid && frm.controls.Estatus.touched">Es obligatorio seleccionar un Estatus</p>
+                         
+                   
+                
+                 </div>
+          <hr>
+       
+
+          <div class="form-group">
+
+              <button class="btn btn-primary  pull-right" type="submit" [disabled]="!frm.valid">Guardar</button>
+              <a class="btn btn-danger" [routerLink]="['/RemolqueL']" >Cancelar</a>
+              <div class="alert" *ngIf="Resultado==false">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    No se puede llevar acabo la transaccion intente mas tarde
+                  </div>
+                  <div class="alertsuccess" *ngIf="Resultado==true">
+                      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                     Registro Guardado correctamente
+                    </div>              
+          </div>
+
+      </form>
+
+
+      <!-- <pre>Valor del formulario:{{frm.value | json}}</pre>
+<pre>status del formulario:{{frm.status | json}}</pre>
+<hr>
+<pre>{{factura | json}}</pre> -->
+  </div>
+
+
+</div>

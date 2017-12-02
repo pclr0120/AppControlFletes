@@ -1,0 +1,172 @@
+<div class=" card card-container row">
+    <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
+            <hr>
+        <button class="btm1 fa fa-pencil" [routerLink]="['/ClienteH']">HOME CLIENTES</button>
+        <hr>    
+        <h2 class="Titulo"> REGISTRO DE  CLIENTES</h2>
+        <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+                <img class=" profile-img"   [src]="fileBrowser"
+                alt="">
+            <div class="form-group">
+             
+                    <img [src]="url" class="profile-img-card">
+                  <input type='file' formControlName="Foto" id="Foto" class="form-control" placeholder="Seleccione una foto"  (change)="readUrl($event)">
+
+            </div>
+            <hr>
+            <div class="form-group">
+                <label class="simple" for="Usuario">Usuario</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.Usuario.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Usuario.invalid && frm.controls.Usuario.touched"></i>
+
+                <input type="email" formControlName="Usuario" id="Usuario" class="form-control" placeholder="Email" [(ngModel)]="Cliente.Email" required disabled >
+                <p class="alert alert-danger" *ngIf="frm.controls.Usuario.invalid && frm.controls.Usuario.touched">El campo es obligatorio</p>
+
+            </div>
+       
+            <div class="form-group">
+                <label class="simple" for="Pass">Contraseña</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.Pass.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Pass.invalid && frm.controls.Pass.touched"></i>
+
+                <input type="Password" formControlName="Pass" id="Pass" class="form-control" placeholder="Contraseña" [(ngModel)]="Cliente.Pass" required >
+                <p class="alert alert-danger" *ngIf="frm.controls.Pass.invalid && frm.controls.Pass.touched">El campo es obligatorio</p>
+
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Pass2">Confirma la contraseña </label>
+                <i class="fa fa-check-circle check" *ngIf="conf"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="!conf "></i>
+
+                <input type="Password" formControlName="Pass2" id="Pass2" class="form-control" placeholder="Contraseña" [(ngModel)]="Cliente.Pass" required >
+  
+
+            </div>
+         
+            <hr>
+            <div class="form-group">
+                <label class="simple" for="Nombre">Nombre</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.Nombre.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Nombre.invalid && frm.controls.Nombre.touched"></i>
+                <input type="text" formControlName="Nombre" id="Nombre" class="form-control" placeholder="Nombre" [(ngModel)]="Cliente.Nombre" required >
+                <p class="alert alert-danger" *ngIf="frm.controls.Nombre.invalid && frm.controls.Nombre.touched">El campo es obligatorio (minimo 10 caracteres)</p>
+            </div>
+            <div class="form-group">
+                <label class="simple" for="Empresa">Empresa</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.Empresa.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Empresa.invalid && frm.controls.Empresa.touched"></i>
+
+                <input type="text" formControlName="Empresa" id="Empresa" class="form-control" placeholder="Empresa" [(ngModel)]="Cliente.Empresa" required >
+                <p class="alert alert-danger" *ngIf="frm.controls.Empresa.invalid && frm.controls.Empresa.touched">El campo es obligatorio</p>
+
+            </div>
+        
+            <div class="form-group">
+                <label class="simple" for="RFC">RFC</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.RFC.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.RFC.invalid && frm.controls.RFC.touched"></i>
+
+                <input type="text" formControlName="RFC" id="RFC" class="form-control" placeholder="RFC" [(ngModel)]="Cliente.RFC" disabled>
+                <p class="alert alert-danger" *ngIf="frm.controls.RFC.invalid && frm.controls.RFC.touched">El campo es obligatorio(El campo debe contener 13 caracteres)</p>
+
+            </div>
+        
+            <div class="form-group">
+                <label class="simple" for="Direccion">Direccion</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.Direccion.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Direccion.invalid && frm.controls.Direccion.touched"></i>
+
+                <input type="text" formControlName="Direccion" id="Direccion" class="form-control" placeholder="Direccion" [(ngModel)]="Cliente.Direccion" >
+                <p class="alert alert-danger" *ngIf="frm.controls.Direccion.invalid && frm.controls.Direccion.touched">El campo es obligatorio(Maximo de caracteres 50)</p>
+
+            </div>
+        
+
+            <hr>
+      
+            <div class="form-group">
+                <label class="simple" for="Telefono">Telefono</label>
+                <i class="fa fa-check-circle check" *ngIf="frm.controls.Telefono.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Telefono.invalid && frm.controls.Telefono.touched"></i>
+
+                <input type="number" formControlName="Telefono" id="Telefono" class="form-control" placeholder="Telefono" [(ngModel)]="Cliente.Telefono" required number>
+                <p class="alert alert-danger" *ngIf="frm.controls.Telefono.invalid && frm.controls.Telefono.touched">El campo es obligatorio (10 caracteres maximo)</p>
+                
+            </div>
+
+            <div class="form-group">     
+                
+                       <label  class="simple" for="Estatus">Estatus  </label>
+                       <i class="fa fa-check-circle check" *ngIf="frm.controls.Estatus.valid"></i>
+                       <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Estatus.invalid && frm.controls.Estatus.touched"></i>
+         
+                       <select class="form-control" formControlName="Estatus" id="Estatus" [(ngModel)]="Cliente.Estatus">
+                               <option value="">Seleccione ...</option>
+                               <option value="A">Activo</option>
+                               <option value="I">Inactivo</option>
+                               
+                       </select>
+                       <p class="alert alert-danger" *ngIf="frm.controls.Estatus.invalid && frm.controls.Estatus.touched">Es obligatorio seleccionar un Estatus</p>
+                       
+                 
+              
+               </div>
+            <!-- <div class="form-group">
+                <label class="simple" for="Ciudad">Ciudad</label>
+                <input type="text" formControlName="Ciudad" id="Ciudad" class="form-control" placeholder="Ciudad">
+            </div> -->
+            <hr>
+
+            <!-- <div class="form-group simple">
+        <label   for="Estatus">Estatus de IVA</label>
+        <select class="form-control" formControlName="Estatus" id="Estatus">
+                <option value="">Seleccione...</option>
+                <option value="0">0%</option>
+                <option value="0.10">10%</option>
+                <option value="0.16">16%</option>
+        </select>
+  
+</div>
+
+            
+
+<div class="form-group">
+        <label class="simple" for="base">IVA</label>  
+        <input type="number" formControlName="base" id="base" class="form-control" placeholder="IVA" >
+</div>
+
+
+<div class="form-group">
+        <label class="simple" for="iva">Importe IVA</label>  
+        <input type="number" formControlName="iva" id="iva" [(ngModel)]="frm.value.iva" class="form-control" disabled >
+</div>
+<div class="form-group">
+        <label class="simple" for="total">Total factura iva incluido</label>  
+        <input type="number" formControlName="total" id="total"  [(ngModel)]="frm.value.total" class="form-control" > 
+</div>
+-->
+<div>
+    
+                  <button class="btn btn-primary  pull-right" type="submit"  [disabled]="!frm.valid">Guardar</button>
+                  <a class="btn btn-danger" [routerLink]="['/UserL']" >Cancelar</a>
+                  <div class="alertsuccess" *ngIf="Resultado==false">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        No se puede llevar acabo la transaccion intente mas tarde
+                      </div>
+                      <div class="alertsuccess" *ngIf="Resultado==true">
+                          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                         Registro eliminado correctamente
+                        </div>              
+              </div>
+
+        </form>
+
+
+        <!-- <pre>Valor del formulario:{{frm.value | json}}</pre>
+<pre>status del formulario:{{frm.status | json}}</pre>
+<hr>
+<pre>{{factura | json}}</pre> -->
+    </div>
+
+
+</div>
