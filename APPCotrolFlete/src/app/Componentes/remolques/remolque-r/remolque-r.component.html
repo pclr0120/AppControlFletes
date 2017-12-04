@@ -42,11 +42,10 @@
                  
                                <select class="form-control" formControlName="Tipo"  id="Tipo">
                                        <option value="">Seleccione ...</option>
-                                       <option value="CamionCarga">Camion de carga</option>
-                                       <option value="Automovil">Automovil</option>
-                                       <option value="Pikup">Pikup</option>
-                                       <option value="Asistente">Asistente de carga</option>
-                                       
+                                       <option value="REFRIGERADO">REFRIGERADO</option>
+                                       <option value="PlataformaConGrua">PLATAFORMA CON GRUA</option>
+                                       <option value="PlataformaDeCamaBja">PLATAFORMA DE CAMA BAJA</option>
+                                      
                                        
                                        
                                </select>
@@ -70,7 +69,7 @@
                     <i class="fa fa-check-circle check" *ngIf="frm.controls.CapacidadCarga.valid"></i>
                     <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.CapacidadCarga.invalid && frm.controls.CapacidadCarga.touched"></i>
       
-                    <input type="text" formControlName="CapacidadCarga" id="CapacidadCarga" class="form-control"  placeholder="Toneladas">
+                    <input type="number" formControlName="CapacidadCarga" id="CapacidadCarga" class="form-control"  placeholder="Toneladas">
                     <p class="alert alert-danger" *ngIf="frm.controls.CapacidadCarga.invalid && frm.controls.CapacidadCarga.touched">El campo es obligatorio(Maximo de caracteres 10)</p>
       
                 </div>

@@ -1,13 +1,16 @@
 <div class="col-lg-8 col-lg-offset-2 margen">
-    <div class="jumbotron">
-      <h1 class="Titulo">BIENVENIDO  MODULO DE REMOLQUES</h1>
-   
-      
-      <p></p>
-      <p>Hora de inicio:{{hoy | date:'d/M/y H:m'}}</p>
-      
-      
-    </div>
-  
+  <div class="jumbotron">
+    <h1 class="Titulo">BIENVENIDO  MODULO DE PROVEEDORES</h1>
+ 
+    
+    <p></p>
+    <p>Hora de inicio:{{hoy | date:'d/M/y H:m'}}</p>
+    <hr>
+    <button class="btm1 fa fa-pencil" [routerLink]="['/proveedor']">REGISTRAR  PROVEEDORES</button>
+    <button class="btm2 fa fa fa-table" [routerLink]="['/ProvvedoresL']">LISTA DE  PROVEEDORES</button>
+    
+    <hr>
+    
   </div>
-  
+
+</div>

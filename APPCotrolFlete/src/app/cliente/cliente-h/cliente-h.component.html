@@ -1,17 +1,16 @@
-  
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+<div class="col-lg-8 col-lg-offset-2 margen">
+  <div class="jumbotron">
+    <h1 class="Titulo">BIENVENIDO  MODULO DE CLIENTES</h1>
+ 
+    
+    <p></p>
+    <p>Hora de inicio:{{hoy | date:'d/M/y H:m'}}</p>
+    <hr>
+    <button class="btm1 fa fa-pencil" [routerLink]="['/ClienteR']">REGISTRAR  CLIENTES</button>
+    <button class="btm2 fa fa fa-table" [routerLink]="['/ClienteL']">LISTA DE  CLIENTES</button>
+    
+    <hr>
+    
+  </div>
 
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body&hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-  </div>
-</ng-template>
+</div>

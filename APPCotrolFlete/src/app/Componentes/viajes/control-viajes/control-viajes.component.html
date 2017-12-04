@@ -3,17 +3,12 @@
 <div class="col-xs-13 col-sm-12 col-sm-10 col-sm-offset-1 col-md-offset 2">
 <h2 class="Titulo">REGITRAR VIAJE</h2>
 <form [formGroup]="ViajeForm" >
-    <p class="alert alert-danger" *ngIf="!ViajeForm.valid" >Por favor acomplete todos los campos</p>
-  
+
 <div class="form-group">     
  
         <label class="simple"  for="Cliente">Cliente </label>
-        <select class="form-control" formControlName="Cliente" id="Cliente">
-                <option value="">Seleccione...</option>
-                <option value="0">Pablo cesar leyva ramirez</option>
-                <option value="0.10">Juan luis torres</option>
-                <option value="0.16">Luis Rivera Parra</option>
-        </select>
+        <input type="text" formControlName="Cliente" id="Cliente" class="form-control" placeholder="Capture el usuario" >
+        
         
   
 
@@ -23,7 +18,7 @@
 
 <div class="form-group">
         <label class="simple" for="Mercancia">Mercancia</label>  
-    <input type="text" formControlName="Mercancia" id="Mercancia" class="form-control" placeholder="Mercancia" >
+    <input type="text" formControlName="Mercancia" id="Mercancia" class="form-control" placeholder="Describe la mercancia" >
 </div>
 <div class="form-group">     
                 
@@ -37,33 +32,23 @@
                  
               
                </div>
-<hr>
-<hr><h3 class="Titulo">ASIGNACION</h3>
 
-<div class="form-group">
-        <label class="simple"  for="Asignacion">Asignacion </label>
-        <select class="form-control" formControlName="Asignacion" id="Asignacion">
-                <option value="">Seleccione el chofer...</option>
-                <option value="0">Karmi Gonzales</option>
-                <option value="0.10">Juan luis torres</option>
-                <option value="0.16">Luis Rivera Parra</option>
-        </select>
-    </div>
-    <hr><h3 class="Titulo">CAMION Y CAJA</h3>
+
+
+    <hr><h3 class="Titulo">VEHICULO Y CAJA</h3>
     <div class="form-group">
-        <label class="simple"  for="AsignacionCamion">Camion </label>
+        <label class="simple"  for="AsignacionCamion">VEHICULO </label>
         <select class="form-control" formControlName="AsignacionCamion" id="AsignacionCamion">
-                <option value="">Seleccione el Camion...</option>
-                <option value="0">Karmi Gonzales</option>
-                <option value="0.10">Juan luis torres</option>
-                <option value="0.16">Luis Rivera Parra</option>
+                <option value="">Seleccione el VEHICULO...</option>
+                <option *ngFor="let DatasV of DataV" value="{{ DatasV.Id }}">{{ DatasV.Marca+'/'+DatasV.Modelo+'/PLACAS:'+DatasV.Placa+'/'+DatasV.tipo+'/'+DatasV.CapacidadCarga+'Tons.' }}</option>
+              
         </select>
     </div>
     <div class="form-group">
         <label class="simple"  for="AsignacionCaja">Asignacion Remolque </label>
         <select class="form-control" formControlName="AsignacionCaja" id="AsignacionCaja">
                 <option value="">Seleccione el Remolque...</option>
-          <option *ngFor="let Datas of Data" value="{{ Datas.Tipo }}">{{ Datas.Tipo }}</option>
+          <option *ngFor="let Datas of Data" value="{{ Datas.Id }}">{{ Datas.Marca+'/'+Datas.Modelo+':'+Datas.Tipo+'/'+Datas.CapacidadCarga+'Tons.' }}</option>
         </select>
     </div>
 
