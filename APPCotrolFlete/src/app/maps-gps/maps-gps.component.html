@@ -1,0 +1,83 @@
+
+
+<div >
+    <button *ngIf="b==false;" type="button" (click)="showDirec()" class="btn btn-primary">Mostar mapa</button>
+    <button type="button" *ngIf="b==true" (click)="HideMap()" class="btn btn-primary">Ocultar mapa</button>
+</div>
+<div *ngIf="b==true;">
+
+  
+
+
+
+
+
+
+<ngui-map zoom="14" [center]="center">
+
+   
+
+      <marker *ngFor="let pos of positions" [position]="pos" draggable="true" (click)="clicked($event)"></marker>
+      <info-window style="background:black;" id="iw">
+          <div >
+              <h6 style="color:rgb(230, 2, 2); font-size:10px;">{{Fecha}}</h6>
+              <br>
+                <button type="button" (click)="openC(contentM)" style="width:80px;" class="btn btn-info">Info<i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                <br>
+                <img  class="btn"  style='width:80px; height:80px;' src="assets/image/camion.png" />
+                <br>
+                <button type="button" (click)="positions = getLoc()"style="width:80px;" class="btn btn-success fa fa-refresh" aria-hidden="true"></button>
+                <br>
+          </div>
+       
+        </info-window>
+  <div>
+  
+    
+</div>
+
+  <directions-renderer
+  [suppressMarkers]="true"
+  [draggable]="true"
+
+  (directions_changed)="directionsChanged()"
+  [directions-request]="direction">
+</directions-renderer>
+</ngui-map>
+
+<div>
+    
+            <ng-template #contentM let-c="close"  let-d="dismiss">
+                    <div class="modal-header"  style=" 
+                                         
+                    background-color: #292b2c;
+                    color: white;">
+                      <h4 class="modal-title">Informacion del Viaje#{{Idd}}</h4>
+                      
+                 
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    
+                  
+                            <pre style="color:black; 
+                            font-size: 12px;" >{{Empleado | json}}</pre>
+                            <h3>Los Datos son correctos?</h3>
+                   
+                    </div>
+                    <div class="modal-footer" >
+                    
+    
+    
+
+                            <button type="button" class="btn btn-danger" (click)="c('Close click')">CANCELAR</button>
+                    </div>
+                  </ng-template>
+    </div>
+<!-- <button (click)="positions = getRandomMarkers()">Show Random Markers</button> <br/>
+<button (click)="positions = getLoc()">ACTUALIZAR</button> <br/>
+<button (click)="showDirec()">direcion</button> <br/> -->
+
+</div>

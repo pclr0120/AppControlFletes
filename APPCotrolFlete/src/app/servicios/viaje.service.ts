@@ -3,8 +3,8 @@ import {Headers,Http,Response}from '@angular/http';
 import 'rxjs/Rx';
 @Injectable()
 export class  ViajeService{
-  presUrl='http://localhost:3000/Remolques';
-  preURL='http://localhost:3000/Remolques';
+  presUrl='http://localhost:3000/viajes';
+  preURL='http://localhost:3000/viajes';
 
     constructor(private http:Http) { }
     data:any;
@@ -38,9 +38,9 @@ export class  ViajeService{
       }
       getdata(id$: string ){
         const url=`${this.preURL}/${id$}`;
-        console.log(url);
+        console.log('viajeServicio:',url);
         
-        return this.http.get(url).map(res=>{ console.log('servicio',res.json());
+        return this.http.get(url).map(res=>{ console.log('servicioviaje',res.json());
          res.json();
           return res.json();
           

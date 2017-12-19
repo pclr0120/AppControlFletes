@@ -1,0 +1,391 @@
+<div class="card ">
+    <div class="card-header" style="color:white; font-size:30px;">
+      LISTADO DE VIAJES
+    </div>
+
+    <div class="card-block">
+
+            <div class="btn-group " role="group" aria-label="Basic example">
+                <button type="button"  class="btn btn-primary fa fa-plus "[routerLink]="['/Viajes']" > NUEVO VIAJE</button>
+                <button type="button" class="btn btn-primary fa fa-home"[routerLink]="['/ViajesHome']" > HOME</button>
+
+              </div>
+
+
+            <ul class="nav nav-tabs" style="background:white" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#Pagado" role="tab" data-toggle="tab">PAGADO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#PAGOmin" role="tab" data-toggle="tab">PAGO MINIMO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#SinPagar" role="tab" data-toggle="tab">SIN PAGAR</a>
+                </li>
+              </ul>
+
+
+              <!-- Tab panes -->
+            <div class="tab-content hola2">
+                <div role="tabpanel" class="tab-pane fade in active" id="Pagado">
+
+                    <div class="container">
+                        
+                          <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3 class="department-news-header">
+                                  
+                                      <span class="archive-link pull-right header-search-span">
+                                        <span class="header-search">
+                                                <input type="number" class="form-control input-sm" [(ngModel)]="Buscar.Id"  maxlength="7" placeholder="#Viaje" />
+                                                <a role="button" class="btn-srch"><i class="fa fa-search"></i></a>
+                                            </span>
+                                      </span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- <th><input  type="number" name="Id" [(ngModel)]="Buscar.Id" placeholder="NUMERO DE VIAJE"><i class="fa fa-search" aria-hidden="true"></i></th> -->
+                        
+                        
+                        <table class="table table-responsive thead-inverse  " style="margin-top:40px;">
+                        
+                          <thead>
+                        
+                            <tr class="filters simple">
+                            
+                            
+                              
+                            <th>#Viaje</th>
+                              
+                        
+                              <th>Origen</th>
+                              <th>Destino</th>
+                              <th>Estatus</th>
+                          
+                              <th>Costo del viaje</th>
+                              <th>Pago</th>
+                              <th>Fecha de Registro</th>
+                            
+                        
+                            
+                              
+                              
+                              <th>Controles</th>
+                        
+                            </tr>
+                        
+                          </thead>
+                          <tbody  >
+                              <tr   *ngFor="let Datas of DataP[0] | Buscador:Buscar" class="detalle" >                                                
+                                  <td>{{Datas.Id}}</td>                          
+                                <td>{{Datas.Origen}}</td>
+                                <td>{{Datas.Destino}}</td>
+                                <td style="color:rgb(9, 9, 24)">{{Datas.EstadoViaje}}</td>
+                                <td  style="color:rgb(12, 12, 3)" >{{Datas.Costo}}MXN</td>
+                                <td>{{Datas.Pago}}</td>
+                                <td>{{Datas.FechaRegistro}}</td>  
+                                <td>
+                                    <button type="button" class="btn btn-success  fa fa-pencil"   (click)="openC(modalEditar,Datas.Id)"  ></button>
+                                    <button type="button" class="btn btn-danger fa fa-trash-o" (click)="openC(modalEliminar,Datas.Id)"  ></button>
+                                    
+                                </td>
+                              
+                              </tr>
+                            </tbody>
+                        </table>
+                        <div class="alertsuccess" *ngIf="Resultado==false">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            No se puede llevar acabo la transaccion intente mas tarde
+                          </div>
+                        
+                        
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="PAGOmin">
+                    <div class="container">
+                        
+                          <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3 class="department-news-header">
+                                  
+                                      <span class="archive-link pull-right header-search-span">
+                                        <span class="header-search">
+                                                <input type="number" class="form-control input-sm" [(ngModel)]="Buscar.Id"  maxlength="7" placeholder="#Viaje" />
+                                                <a role="button" class="btn-srch"><i class="fa fa-search"></i></a>
+                                            </span>
+                                      </span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- <th><input  type="number" name="Id" [(ngModel)]="Buscar.Id" placeholder="NUMERO DE VIAJE"><i class="fa fa-search" aria-hidden="true"></i></th> -->
+                        
+                        
+                        <table class="table table-responsive thead-inverse  " style="margin-top:40px;">
+                        
+                          <thead>
+                        
+                            <tr class="filters simple">
+                            
+                            
+                              
+                            <th>#Viaje</th>
+                              
+                        
+                              <th>Origen</th>
+                              <th>Destino</th>
+                              <th>Estatus</th>
+                          
+                              <th>Costo del viaje</th>
+                              <th>Pago</th>
+                              <th>Fecha de Registro</th>
+                            
+                        
+                            
+                              
+                              
+                              <th>Controles</th>
+                        
+                            </tr>
+                        
+                          </thead>
+                          <tbody  >
+                              <tr   *ngFor="let Datas of DataPm[0] | Buscador:Buscar" class="detalle" >                                                
+                                  <td>{{Datas.Id}}</td>                          
+                                <td>{{Datas.Origen}}</td>
+                                <td>{{Datas.Destino}}</td>
+                                <td style="color:rgb(9, 9, 24)">{{Datas.EstadoViaje}}</td>
+                                <td  style="color:rgb(12, 12, 3)" >{{Datas.Costo}}MXN</td>
+                                <td>{{Datas.Pago}}</td>
+                                <td>{{Datas.FechaRegistro}}</td>  
+                                <td>
+                                    <button type="button" class="btn btn-success  fa fa-pencil"   (click)="openC(modalEditar,Datas.Id)"  ></button>
+                                    <button type="button" class="btn btn-danger fa fa-trash-o" (click)="openC(modalEliminar,Datas.Id)"  ></button>
+                                    
+                                </td>
+                              
+                              </tr>
+                            </tbody>
+                        </table>
+                        <div class="alertsuccess" *ngIf="Resultado==false">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            No se puede llevar acabo la transaccion intente mas tarde
+                          </div>
+                          <div class="alertsuccess" *ngIf="Resultado==true">
+                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            Registro eliminado correctamente
+                            </div>
+                        
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="SinPagar">
+
+                    <div class="container">
+                        
+                          <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3 class="department-news-header">
+                                  
+                                      <span class="archive-link pull-right header-search-span">
+                                        <span class="header-search">
+                                                <input type="number" class="form-control input-sm" [(ngModel)]="Buscar.Id"  maxlength="7" placeholder="#Viaje" />
+                                                <a role="button" class="btn-srch"><i class="fa fa-search"></i></a>
+                                            </span>
+                                      </span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- <th><input  type="number" name="Id" [(ngModel)]="Buscar.Id" placeholder="NUMERO DE VIAJE"><i class="fa fa-search" aria-hidden="true"></i></th> -->
+                        
+                        
+                        <table class="table table-responsive thead-inverse  " style="margin-top:40px;">
+                        
+                          <thead>
+                        
+                            <tr class="filters simple">
+                            
+                            
+                              
+                            <th>#Viaje</th>
+                              
+                        
+                              <th>Origen</th>
+                              <th>Destino</th>
+                              <th>Estatus</th>
+                          
+                              <th>Costo del viaje</th>
+                              <th>Pago</th>
+                              <th>Fecha de Registro</th>
+                            
+                        
+                            
+                              
+                              
+                              <th>Controles</th>
+                        
+                            </tr>
+                        
+                          </thead>
+                          <tbody  >
+                              <tr   *ngFor="let Datas of DataNp[0] | Buscador:Buscar" class="detalle" >                                                
+                                  <td>{{Datas.Id}}</td>                          
+                                <td>{{Datas.Origen}}</td>
+                                <td>{{Datas.Destino}}</td>
+                                <td style="color:rgb(9, 9, 24)">{{Datas.EstadoViaje}}</td>
+                                <td  style="color:rgb(12, 12, 3)" >{{Datas.Costo}}MXN</td>
+                                <td>{{Datas.Pago}}</td>
+                                <td>{{Datas.FechaRegistro}}</td>  
+                                <td>
+                                    <button type="button" class="btn btn-success  fa fa-pencil"   (click)="openC(modalEditar,Datas.Id)"  ></button>
+                                    <button type="button" class="btn btn-danger fa fa-trash-o" (click)="openC(modalEliminar,Datas.Id)"  ></button>
+                                    
+                                </td>
+                              
+                              </tr>
+                            </tbody>
+                        </table>
+                        <div class="alertsuccess" *ngIf="Resultado==false">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            No se puede llevar acabo la transaccion intente mas tarde
+                          </div>
+                          <div class="alertsuccess" *ngIf="Resultado==true">
+                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            Registro eliminado correctamente
+                            </div>
+                        
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+
+
+                          <div>
+                              
+                                      <ng-template #modalEliminar let-c="close"  let-d="dismiss">
+                                              <div class="modal-header"  style=" 
+                                                                   
+                                              background-color: #292b2c;
+                                              color: white;">
+                                                <h4 class="modal-title">MENSAJE DE CONFIRMACION</h4>
+                                                
+
+                                                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                              
+                                            
+                                                      <pre style="color:black; 
+                                                      font-size: 12px;" >#Numero de viaje a Eliminar:{{id}}</pre>
+                                                      <h3>Los Datos son correctos?</h3>
+                                             
+                                              </div>
+                                              <div class="modal-footer" >
+                                              
+                              
+                              
+                                                      <button type="button" class="btn pull-right btn-primary" (click)="c('Close click')" [routerLink]="['/ViajeL']"  (click)="del()">ELIMINAR</button>
+                                                      <button type="button" class="btn btn-danger" (click)="c('Close click')">CANCELAR</button>
+                                              </div>
+                                            </ng-template>
+                              </div>
+                              <div>
+                                  
+                                          <ng-template #modalEditar let-c="close"  let-d="dismiss">
+                                                  <div class="modal-header"  style=" 
+                                                                       
+                                                  background-color: #292b2c;
+                                                  color: white;">
+                                                    <h4 class="modal-title">MENSAJE DE CONFIRMACION</h4>
+                                                    
+    
+                                                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                  
+                                                
+                                                          <pre style="color:black; 
+                                                          font-size: 12px;" >#Numero de viaje a Editar:{{id}}</pre>
+                                                          <h3>Los Datos son correctos?</h3>
+                                                 
+                                                  </div>
+                                                  <div class="modal-footer" >
+                                                  
+                                  
+                                  
+                                                          <button type="button" class="btn pull-right btn-primary" (click)="c('Close click')"   [routerLink]="['/ViajeEdit',id]">EDITAR</button>
+                                                          <button type="button" class="btn btn-danger" (click)="c('Close click')">CANCELAR</button>
+                                                  </div>
+                                                </ng-template>
+                                  </div>
+                </div>
+                
+          <div class="card-footer text-muted">
+                © Derechos Reservados 2017-2018 ALPHATSOFT.com Derechos de Contenido Reservados.
+            </div>
+          </div>

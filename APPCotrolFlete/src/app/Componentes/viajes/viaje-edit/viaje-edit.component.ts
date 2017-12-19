@@ -12,12 +12,12 @@ import { ViajeService } from '../../../servicios/viaje.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-viaje-consultar',
-  templateUrl: './viaje-consultar.component.html',
-  styleUrls: ['./viaje-consultar.component.css']
+  selector: 'app-viaje-edit',
+  templateUrl: './viaje-edit.component.html',
+  styleUrls: ['./viaje-edit.component.css']
 })
-export class ViajeConsultarComponent implements OnInit {
-  Cliente:any[]=[];
+export class ViajeEditComponent implements OnInit {
+
   Data:any[]=[];
   DataV:any[]=[];
   DataC:any[]=[];
@@ -35,14 +35,8 @@ export class ViajeConsultarComponent implements OnInit {
   PrecioEstablecido:number;
   BpMinimo:boolean=false;
   id:string;
-  ClienteID:string;
   sR:number;
-  resul:boolean=false;
-  IdGPS:string="pclr";
-  Origen:any;
-  Destino:any;
-  Idchoferr:any;
-  constructor(private activatedRouter:ActivatedRoute, private router:Router, private pf:FormBuilder,private pf0:FormBuilder,private mysql: RemolqueService,
+  constructor(private activatedRouter:ActivatedRoute, private router:Router, private pf:FormBuilder,private mysql: RemolqueService,
     private mysqlV: MysqlVehiculoService,private mysqlC: ClienteService,private modalService: NgbModal
   ,private mapsSer:GoogleMapsService, private mysqlO:MysqlService,private myslqViaje:ViajeService) { 
 
@@ -67,7 +61,7 @@ export class ViajeConsultarComponent implements OnInit {
       const p=DataV[id$];
       p.id$=id$;
       this.DataV.push(DataV[id$]);
-  
+      console.log("datos:",this.DataV);
      
       
   }
@@ -80,28 +74,23 @@ subscribe(DataO=>{
     const p=DataO[id$];
     p.id$=id$;
     this.DataO.push(DataO[id$]);
- 
+    console.log("datosOperador:",this.DataO);
    
     
 }
 });
 
 
-
-
-
- 
-
-
-  }
-
-buscar(){
-
-  this.myslqViaje.getdata(this.frm0.get('NumeroV').value)
+this.activatedRouter.params
+.subscribe(parametros=>{
+  this.id=parametros['id'];
+  console.log("dentroID",this.id);
+  this.myslqViaje.getdata(this.id)
   .subscribe(viaje=>{
-
+    console.log("dentro1",viaje[0]);
+    console.log("dentro1",viaje);
     this.viaje=viaje[0];
-
+    console.log("viaje",this.viaje.Pago);
 
     if(this.viaje.Pago=="PAGOMinimo")
     this.BpMinimo=false;
@@ -109,25 +98,16 @@ buscar(){
       this.BpMinimo=true;
 
       this.sR=this.viaje.Costo-this.viaje.PagoMin;
-  
-      this.Origen=this.viaje.Origen;
-      this.Destino=this.viaje.Destino;
-      this.Idchoferr=this.viaje.AsignacionOperador;
-      this.resul=true;
-
-
-      this.mysqlC.getUsuario(viaje[0].Cliente)
-      .subscribe(Cliente=>{
-      
-        this.Cliente=Cliente[0];
-     
+      console.log(this.sR);
     
-        
-        
-      });
-  });
+  })
+});
+ 
 
-}
+
+  }
+
+
   openC(contentM) {
     this.viaje = this.saveViaje();
     this.modalService.open(contentM, { windowClass: 'dark-modal' });
@@ -146,7 +126,8 @@ buscar(){
     this.tiempo=this.DataM[0].rows[0].elements[0].duration.text;
     this.distanciaValor=this.DataM[0].rows[0].elements[0].distance.value;
     this.viaje.Pago=((this.distanciaValor/1609.34)*this.PrecioEstablecido).toFixed(0);
-
+    console.log("datos:",this.DataM[0].rows[0].elements[0].distance.text);
+    console.log("datos:",this.DataM[0].rows[0].elements[0].duration.text);
 
     });
     this.modalService.open(content, { windowClass: 'dark-modal' });
@@ -156,8 +137,6 @@ buscar(){
  
 
     frm:FormGroup;
-    frm0:FormGroup;
-    vaije0:any;
     viaje:any;
     ngOnInit() {
       this.PrecioEstablecido=120;
@@ -177,19 +156,6 @@ buscar(){
             Pago:['',[Validators.required,Validators.maxLength(30)]],
             PagoMin:['[0-9]*',[Validators.maxLength(6)]],
             SaldoRestante:['',[Validators.maxLength(6)]]
-          
-
-         
-         
-            
-          
-      
-            
-          });
-
-          this.frm0=this.pf0.group({
-            NumeroV:['[0-9]*',[Validators.required,Validators.maxLength(7)]]
-            
           
 
          
@@ -268,34 +234,5 @@ buscar(){
               
                
               }           
-
-
-              otro(){
-         
-                this.DataC=[];
-                this.DataM=[];
-              
-                this.valor="guasave";
-                this.b=false;
-                this.closeResult="";
-                this.Origen0="";
-                this.Destino0="";
-                this.tiempo="";
-                this.distancia="";
-                this.distanciaValor=0;
-                this.costo=0;
-                this.PrecioEstablecido=0;
-                this.BpMinimo=false;
-                this.id="";
-                this.sR=0;
-                this.resul=false;
-                this.IdGPS="pclr";
-                this.Origen="";
-                this.Destino="";
-                this.Idchoferr="";
-                this.frm.reset();
-                this.frm0.reset();
-                this.Cliente=[];
-              }
             
 }

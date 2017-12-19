@@ -61,6 +61,17 @@ import { RemolqueLComponent } from './componentes/remolques/remolque-l/remolque-
 import { RemolqueEditComponent } from './componentes/remolques/remolque-edit/remolque-edit.component';
 import { RemolqueHomeComponent } from './componentes/remolques/remolque-home/remolque-home.component';
 import {ViajeService}from '../app/servicios/viaje.service';
+import { ListadoitemsComponent } from './mercadolibre/listadoitems/listadoitems.component';
+import { MercadoLibreService} from './servicios/mercado-libre.service';
+import { BigMapsComponent } from './componentes/big-maps/big-maps.component';
+import { ModalComponent } from './componentes/modal/modal.component';
+import {GoogleMapsService} from './servicios/google-maps.service';
+import { ViajeListasComponent } from './componentes/viajes/viaje-listas/viaje-listas.component';
+import { ViajeEditComponent } from './componentes/viajes/viaje-edit/viaje-edit.component';
+import { NguiMapModule} from '@ngui/map';
+import { MapsGPSComponent } from './maps-gps/maps-gps.component';
+import {FireGPSService} from './servicios/fire-gps.service';
+import { GPSRegistroComponent } from './gpsregistro/gpsregistro.component';
 @NgModule({
   declarations: [
     AppComponent,LoginComponent, InicioComponent, HomeComponent, FacturaComponent, 
@@ -71,12 +82,14 @@ import {ViajeService}from '../app/servicios/viaje.service';
       ControlViajesComponent, ControlViajesHomeComponent, ViajeComponent, MapsComponent, ViajeConsultarComponent,
        MenuBotonesComponent, WebHomeComponent, 
     WebMenuComponent, PanelAdminComponent, EmpleadoListaComponent, UsuarioPostComponent, EmpleadoEditComponent, UserLComponent, 
-    UserEditComponent,BuscadorPipe, VehiculoLComponent, VehiculoEditComponent, UsuarioHomeComponent, ClienteRComponent, ClienteLComponent, ClienteHComponent, ClienteEditComponent, RemolqueRComponent, RemolqueLComponent, RemolqueEditComponent, RemolqueHomeComponent
+    UserEditComponent,BuscadorPipe, VehiculoLComponent, VehiculoEditComponent, UsuarioHomeComponent, ClienteRComponent, ClienteLComponent, ClienteHComponent, ClienteEditComponent, RemolqueRComponent, RemolqueLComponent, RemolqueEditComponent, 
+    RemolqueHomeComponent, ListadoitemsComponent, BigMapsComponent, ModalComponent, ViajeListasComponent, ViajeEditComponent, MapsGPSComponent, GPSRegistroComponent
   ],
   imports: [NgbModule,
-    BrowserModule , FormsModule,routing,ReactiveFormsModule,HttpModule
+    BrowserModule , FormsModule,routing,ReactiveFormsModule,HttpModule,    NgbModule.forRoot(),  
+     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBaMMzIEpQfVqohNoip8_U8vinVUAiyWe0'})
   ],
-  providers: [appRoutingProviders,MysqlService,MysqlUserService,MysqlVehiculoService,ClienteService,RemolqueService,ViajeService],
+  providers: [FireGPSService,MercadoLibreService,appRoutingProviders,MysqlService,MysqlUserService,MysqlVehiculoService,ClienteService,RemolqueService,ViajeService,GoogleMapsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

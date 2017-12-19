@@ -1,0 +1,298 @@
+<div class="card ">
+                <div class="card-header text-center" style="color:white; font-size:30px;">
+                 ACTUALIZAR VIAJE:#{{viaje.Id}}
+                </div>
+            
+                <div class="card-block">
+
+          
+<form [formGroup]="frm" >
+
+       
+  <div class="form-group">
+    <label class="simple" for="Cliente">Cliente</label>
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.Cliente.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Cliente.invalid && frm.controls.Cliente.touched"></i>
+    <input type="text" formControlName="Cliente" id="Cliente" class="form-control" [(ngModel)]="viaje.Cliente" placeholder="Cliente" >              
+    <p class="alert alert-danger" *ngIf="frm.controls.Cliente.invalid && frm.controls.Cliente.touched">El campo es obligatorio (Maximo 50 caracteres)</p>
+  </div>
+
+<div class="form-group">
+    <label class="simple" for="Mercancia">Mercancia</label>  
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.Mercancia.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Mercancia.invalid && frm.controls.Mercancia.touched"></i>
+    
+<input type="text" formControlName="Mercancia" id="Mercancia" class="form-control" placeholder="Describe la mercancia" [(ngModel)]="viaje.Mercancia" >
+<p class="alert alert-danger" *ngIf="frm.controls.Mercancia.invalid && frm.controls.Mercancia.touched">El campo es obligatorio (Maximo 100 caracteres)</p>
+
+</div>
+<div class="form-group">     
+            
+                   <label  class="simple" for="Tipo">Tipo </label>
+                   <i class="fa fa-check-circle check" *ngIf="frm.controls.Tipo.valid"></i>
+                   <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Tipo.invalid && frm.controls.Tipo.touched"></i>
+                   
+                   <select class="form-control" formControlName="Tipo" id="Tipo" [(ngModel)]="viaje.Tipo">
+                           <option value="">Seleccione ...</option>
+                           <option value="Normal">Normal</option>
+                           <option value="Temperatura">A Temperatura</option>
+                           <option value="Fragil">Fragil</option>
+                   </select>
+                   <p class="alert alert-danger" *ngIf="frm.controls.Tipo.invalid && frm.controls.Tipo.touched">Seleccione un Tipo de mercancia</p>
+                   
+          
+           </div>
+
+
+
+           <hr style="color:white; background-color:white;">
+<h3 class="Titulo">VEHICULO Y CAJA</h3>
+<div class="form-group">
+    <label class="simple"  for="AsignacionCamion">VEHICULO </label>
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.AsignacionCamion.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.AsignacionCamion.invalid && frm.controls.AsignacionCamion.touched"></i>
+    
+    <select class="form-control" formControlName="AsignacionCamion" id="AsignacionCamion" [(ngModel)]="viaje.AsignacionCamion">
+            <option value="">Seleccione el VEHICULO...</option>
+            <option *ngFor="let DatasV of DataV" value="{{ DatasV.Id }}">{{ DatasV.Cliente+'/'+DatasV.Modelo+'/PLACAS:'+DatasV.Placa+'/'+DatasV.tipo+'/'+DatasV.CapacidadCarga+'Tons.' }}</option>
+          
+    </select>
+    <p class="alert alert-danger" *ngIf="frm.controls.AsignacionCamion.invalid && frm.controls.AsignacionCamion.touched">Seleccione un Vehiculo</p>
+    
+
+</div>
+<div class="form-group">
+    <label class="simple"  for="AsignacionCaja">Asignacion Remolque </label>
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.AsignacionCaja.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.AsignacionCaja.invalid && frm.controls.AsignacionCaja.touched"></i>
+    
+    <select class="form-control" formControlName="AsignacionCaja" id="AsignacionCaja" [(ngModel)]="viaje.AsignacionCaja">
+            <option value="">Seleccione el Remolque...</option>
+      <option *ngFor="let Datas of Data" value="{{ Datas.Id }}">{{ Datas.Cliente+'/'+Datas.Modelo+':'+Datas.Tipo+'/'+Datas.CapacidadCarga+'Tons.' }}</option>
+    </select>
+    <p class="alert alert-danger" *ngIf="frm.controls.AsignacionCaja.invalid && frm.controls.AsignacionCaja.touched">Seleccione un remolque</p>
+    
+</div>
+<div class="form-group">
+    <label class="simple"  for="AsignacionOperador">Asignacion Operador </label>
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.AsignacionOperador.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.AsignacionOperador.invalid && frm.controls.AsignacionOperador.touched"></i>
+    
+    <select class="form-control" formControlName="AsignacionOperador" id="AsignacionOperador" [(ngModel)]="viaje.AsignacionOperador">
+            <option value="">Seleccione el Remolque...</option>
+            <option *ngFor="let Datas of DataO" value="{{ Datas.Id }}">{{ Datas.Nombre }}</option>
+    </select>
+    <p class="alert alert-danger" *ngIf="frm.controls.AsignacionOperador.invalid && frm.controls.AsignacionOperador.touched">Seleccione el operador</p>
+    
+</div>
+
+
+<hr style="color:white; background-color:white;">
+<h3 class="Titulo">INDICACIONES</h3>
+<div class="form-group">
+            <label class="simple" for="Origen">Origen</label>  
+            <i class="fa fa-check-circle check" *ngIf="frm.controls.Origen.valid"></i>
+            <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Origen.invalid && frm.controls.Origen.touched"></i>
+            
+            <input type="text" formControlName="Origen" id="Origen" class="form-control" placeholder="Ingrese el Origen(se mostrar en el mapa para ser mas exacto)" [(ngModel)]="viaje.Origen">
+<label class="simple" for="Destino">Destino</label>  
+<i class="fa fa-check-circle check" *ngIf="frm.controls.Destino.valid"></i>
+<i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Destino.invalid && frm.controls.Destino.touched"></i>
+
+<input type="text" formControlName="Destino" id="Destino" class="form-control"  [(ngModel)]="viaje.Destino" placeholder="Ingrese el destino(se mostrar en el mapa para ser mas exacto)" >
+<p class="alert alert-danger" *ngIf="frm.controls.Destino.invalid&&frm.controls.Origen.invalid && frm.controls.Destino.touched">Capture un origen y un destino</p>
+
+<hr>
+
+<div >
+    <ng-template #content let-c="close"  let-d="dismiss">
+            <div class="modal-header"  style=" 
+                                 
+            background-color: #292b2c;
+            color: white;">
+              <h4 class="modal-title">RUTAS DEL VIAJE</h4>
+              
+          
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            
+              <app-big-maps  [Destino]="Destino0" [Origen]="Origen0" ></app-big-maps>
+
+             
+                      <h4>Tiempo:{{tiempo}}</h4>
+                      <h4>Distancia:{{distancia}}</h4>
+                
+                     
+           
+            </div>
+            <div class="modal-footer" style=" 
+            
+background-color: #292b2c;
+color: white;">
+<h2 style=" 
+color: rgb(236, 26, 26);
+text-decoration-color: rgb(223, 21, 21);">Total a Pagar :{{costo}}MXN</h2>
+
+                    <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+            </div>
+          </ng-template>
+          
+          <button class="btn btn-lg btn-outline-primary" [disabled]="!b" (click)="open(content)">MOSTRAR EN MAPA</button>
+          
+</div>
+<!-- <button class="btn btn-primary" (click)="hola()">mostrar</button>
+<button class="btn btn-primary" (click)="hola2()">recargar</button> -->
+<!-- 
+<div *ngIf="b">
+<app-modal [Destino]="valor"></app-modal>
+ 
+</div> -->
+
+</div>
+
+<hr style="color:white; background-color:white;">
+<h3 class="Titulo">FECHAS</h3>
+<div class="form-group">
+    <label class="simple" for="FechaTraslado">FechaTraslado</label>  
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.FechaTraslado.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.FechaTraslado.invalid && frm.controls.FechaTraslado.touched"></i>
+    
+<input type="date" formControlName="FechaTraslado" id="FechaTraslado" class="form-control" placeholder="Describe la   FechaTraslado" [(ngModel)]="viaje.FechaTraslado" >
+<p class="alert alert-danger" *ngIf="frm.controls.FechaTraslado.invalid && frm.controls.  FechaTraslado.touched">El campo es obligatorio (Maximo 100 caracteres)</p>
+
+</div>
+<div class="form-group">
+    <label class="simple" for="FechaEntrega">FechaEntrega</label>  
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.FechaEntrega.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.FechaEntrega.invalid && frm.controls.FechaEntrega.touched"></i>
+    
+<input type="date" formControlName="FechaEntrega" id="FechaEntrega" class="form-control" placeholder="Describe la   FechaEntrega" [(ngModel)]="viaje.FechaEntrega">
+<p class="alert alert-danger" *ngIf="frm.controls.FechaEntrega.invalid && frm.controls.  FechaEntrega.touched">El campo es obligatorio (Maximo 100 caracteres)</p>
+
+</div>
+
+
+
+<hr style="color:white; background-color:white;">
+<h3 class="" ></h3>
+<div class="form-group">
+  <label class="simple" for="Costo">Costo</label>
+  <i class="fa fa-check-circle check" *ngIf="frm.controls.Costo.valid"></i>
+  <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Costo.invalid && frm.controls.Costo.touched"></i>
+  
+  <input type="text" pattern="[0-9]*"  formControlName="Costo" id="Costo" class="form-control" [(ngModel)]="viaje.Costo" placeholder="Costo del viaje">
+  <p class="alert alert-danger" *ngIf="frm.controls.Costo.invalid && frm.controls.Costo.touched">El campo es obligatorio(Maximo 7 digitos)</p>
+  
+  </div>
+<div class="form-group">     
+    
+           <label  class="simple" for="Pago">Pago </label>
+           <i class="fa fa-check-circle check" *ngIf="frm.controls.Pago.valid"></i>
+           <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Pago.invalid && frm.controls.Pago.touched"></i>
+       
+           <select  class="form-control" formControlName="Pago" id="Pago" [(ngModel)]="viaje.Pago">
+                   <option value="">Seleccione...</option>
+                   <option value="SALDADO">SALDADO</option>
+                   <option value="PAGOMinimo">PAGO Minimo</option>
+                   <option  value="SinSaldar">Sin Saldar</option>
+           </select>
+     
+           <p class="alert alert-danger" *ngIf="frm.controls.Pago.invalid && frm.controls.Pago.touched">Seleccione el pago</p>
+           
+   </div>
+   <div  [hidden]="BpMinimo" class="form-group">
+    <label class="simple" for="PagoMin">Pago Minimo</label>  
+    <i class="fa fa-check-circle check" *ngIf="frm.controls.PagoMin.valid"></i>
+    <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.PagoMin.invalid && frm.controls.PagoMin.touched"></i>
+    
+<input type="number"   formControlName="PagoMin" id="PagoMin" class="form-control" placeholder="Capture el pago"  [(ngModel)]="viaje.PagoMin">
+<p class="alert alert-danger" *ngIf="frm.controls.PagoMin.invalid && frm.controls.  PagoMin.touched">El campo es obligatorio (Maximo 6 caracteres y solo numeros)</p>
+
+
+</div>
+<div class="form-group" [hidden]="BpMinimo">
+  <label class="simple" for="Restante">Saldo Restante</label>  
+  
+  <input type="text"   disabled  id="SaldoRestante" formControlName="SaldoRestante" class="form-control"  [(ngModel)]="sR">
+</div>
+
+
+<hr style="color:white; background-color:white;">
+<div class="form-group">     
+
+       <label  class="simple" for="EstadoViaje">EstadoViaje </label>
+       <i class="fa fa-check-circle check" *ngIf="frm.controls.EstadoViaje.valid"></i>
+       <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.EstadoViaje.invalid && frm.controls.EstadoViaje.touched"></i>
+   
+       <select class="form-control" formControlName="EstadoViaje" id="EstadoViaje" [(ngModel)]="viaje.EstadoViaje">
+               <option value="">Seleccione...</option>
+               <option value="Documentado">Documentado</option>
+               <option value="EnProceso">En Proceso</option>
+               <option value="EnTransito">En Transito</option>
+       </select>
+ 
+       <p class="alert alert-danger" *ngIf="frm.controls.EstadoViaje.invalid && frm.controls.EstadoViaje.touched">Seleccione un Estado</p>
+       
+</div>
+
+
+
+ 
+<hr>
+<div>
+
+    <ng-template #contentM let-c="close"  let-d="dismiss">
+            <div class="modal-header"  style=" 
+                                 
+            background-color: #292b2c;
+            color: white;">
+              <h4 class="modal-title">MENSAJE DE CONFIRMACION</h4>
+              
+         
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            
+          
+                    <pre style="color:black; 
+                    font-size: 12px;" >{{viaje | json}}</pre>
+                    <h3>Los Datos son correctos?</h3>
+           
+            </div>
+            <div class="modal-footer" >
+            
+
+
+                    <button type="button" class="btn pull-right btn-primary" (click)="c('Close click')" (click)="guardar()">GUARDAR</button>
+                    <button type="button" class="btn btn-danger " (click)="c('Close click')">CANCELAR</button>
+            </div>
+          </ng-template>
+</div>
+<div>
+        
+        <button class="btn btn-primary  pull-right" (click)="openC(contentM)" [disabled]="!frm.valid" >Guardar</button>
+        <button class="btn btn-danger" [routerLink]="['/ViajeL']" >CANCELAR</button>
+        
+</div>
+
+</form>
+
+
+<!-- <pre>Valor del formulario:{{ViajeForm.value | json}}</pre>
+<pre>status del formulario:{{ViajeForm.status | json}}</pre>
+<hr>
+<pre>{{factura | json}}</pre> -->
+</div>
+
+
+
+
+<div class="card-footer text-muted">
+                © Derechos Reservados 2017-2018 ALPHATSOFT.com Derechos de Contenido Reservados.
+            </div>
+          </div>

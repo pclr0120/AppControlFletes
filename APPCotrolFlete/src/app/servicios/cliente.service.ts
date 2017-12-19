@@ -47,6 +47,17 @@ export class ClienteService {
         });
          
       }
+      getUsuarioNombre(id$: string ){
+        const url=`${this.preURL}N/${id$}`;
+        console.log(url);
+        
+        return this.http.get(url).map(res=>{ console.log('servicio',res.json());
+         res.json();
+          return res.json();
+          
+        });
+         
+      }
       getLog(id$: string ){
         const url=`${this.preURL}/Log/${id$}`;
         console.log(url);

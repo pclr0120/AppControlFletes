@@ -36,7 +36,9 @@ import { RemolqueRComponent } from './Componentes/remolques/remolque-r/remolque-
 import { RemolqueLComponent } from './componentes/remolques/remolque-l/remolque-l.component';
 import { RemolqueEditComponent } from './componentes/remolques/remolque-edit/remolque-edit.component';
 import { RemolqueHomeComponent } from './componentes/remolques/remolque-home/remolque-home.component';
-
+import { ViajeListasComponent } from './componentes/viajes/viaje-listas/viaje-listas.component';
+import { ViajeEditComponent } from './componentes/viajes/viaje-edit/viaje-edit.component';
+import { ControlViajesHomeComponent } from './Componentes/Viajes/control-viajes-home/control-viajes-home.component';
 const appRoutes:Routes=[
     {path:'',component:InicioComponent},
     {path:'',redirectTo:'login',pathMatch:'full'},
@@ -81,6 +83,11 @@ const appRoutes:Routes=[
                 ,        {path:'RemolqueL',component:RemolqueLComponent}
                 ,        {path:'RemolqueEdit/:id',component:RemolqueEditComponent}
                 ,        {path:'RemolqueHome',component:RemolqueHomeComponent}
+                ,        {path:'ViajeL',component:ViajeListasComponent},
+                {path:'ViajeEdit/:id',component:ViajeEditComponent},
+                {path:'ViajesHome',component:ControlViajesHomeComponent},
+                
+                   
                 
                         
         

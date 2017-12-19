@@ -33,14 +33,14 @@ Resultado:boolean;
   }
 
   eliminar(id$){
-    console.log("id:",id$);
+  
     
         this.mysql.deldata(id$).subscribe(res=>{
           if(res.success){
             this.Resultado=true;
           }else
           this.Resultado=false;
-          console.log(res);
+      
           this.Data=[];
            this.mysql.getdatas().
     subscribe(Data=>{

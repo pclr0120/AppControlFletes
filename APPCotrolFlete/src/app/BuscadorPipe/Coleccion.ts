@@ -14,7 +14,7 @@ export class Coleccion {
   Nombre: String;
   Marca: String;
   Numero: String;
-  
+  Id: number;
 
   /**
    * @type {string} author The author of the book.
@@ -25,4 +25,5 @@ export class Coleccion {
    * @type {number} year The year the book was published.
    */
   year: number;
+
 }

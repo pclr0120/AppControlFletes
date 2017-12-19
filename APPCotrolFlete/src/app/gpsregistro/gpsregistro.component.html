@@ -1,0 +1,54 @@
+<div class="card ">
+  <form [formGroup]="frm" >
+      
+            
+        <div class="form-group">
+          <label class="simple" for="Lat">Lat</label>
+          <i class="fa fa-check-circle check" *ngIf="frm.controls.Lat.valid"></i>
+          <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Lat.invalid && frm.controls.Lat.touched"></i>
+          <input type="text" formControlName="Lat" id="Lat" class="form-control" placeholder="Lat" >              
+          <p class="alert alert-danger" *ngIf="frm.controls.Lat.invalid && frm.controls.Lat.touched">El campo es obligatorio (Maximo 50 caracteres)</p>
+        </div>
+      
+      <div class="form-group">
+          <label class="simple" for="Log">Log</label>  
+          <i class="fa fa-check-circle check" *ngIf="frm.controls.Log.valid"></i>
+          <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Log.invalid && frm.controls.Log.touched"></i>
+          
+      <input type="text" formControlName="Log" id="Log" class="form-control" placeholder="Describe la Log"  >
+      <p class="alert alert-danger" *ngIf="frm.controls.Log.invalid && frm.controls.Log.touched">El campo es obligatorio (Maximo 100 caracteres)</p>
+      
+      </div>
+      <div class="form-group">
+          <label class="simple" for="Nombre">Nombre</label>  
+          <i class="fa fa-check-circle check" *ngIf="frm.controls.Nombre.valid"></i>
+          <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Nombre.invalid && frm.controls.Nombre.touched"></i>
+          
+      <input type="text" formControlName="Nombre" id="Nombre" class="form-control" placeholder="Describe la Nombre"  >
+      <p class="alert alert-danger" *ngIf="frm.controls.Nombre.invalid && frm.controls.Nombre.touched">El campo es obligatorio (Maximo 100 caracteres)</p>
+      
+      </div>
+      <div class="form-group">
+          <label class="simple" for="Fecha">Fecha</label>  
+          <i class="fa fa-check-circle check" *ngIf="frm.controls.Fecha.valid"></i>
+          <i class="fa fa-exclamation-circle uncheck " *ngIf="frm.controls.Fecha.invalid && frm.controls.Fecha.touched"></i>
+          
+      <input type="datetime-local" formControlName="Fecha" id="Fecha" class="form-control" placeholder="Describe la Fecha"  >
+      <p class="alert alert-danger" *ngIf="frm.controls.Fecha.invalid && frm.controls.Fecha.touched">El campo es obligatorio (Maximo 100 caracteres)</p>
+      
+      </div>
+  
+      <div>
+          <hr>
+          <button class="btn btn-primary  pull-right" (click)="hola()" >Guardar</button>
+          <button class="btn btn-primary  pull-right" (click)="Mandar()" >MAndar</button>
+          
+      <hr>
+
+</div>
+  </form>
+  <div>
+      <app-maps-gps [Idchofer]="Idchoferr" [Idd]="IdGPS" [Origen0]="Origen" [Destino0]="Destino" ></app-maps-gps>
+    </div>
+  <pre>{{GpsData | json}}</pre>
+</div>

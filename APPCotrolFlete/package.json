@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
@@ -22,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
+    "@ngui/map": "^0.20.0",
+    "@types/googlemaps": "^3.30.2",
     "angular-google-map": "0.0.2",
     "angular4-files-upload": "^1.0.2",
     "core-js": "^2.4.1",

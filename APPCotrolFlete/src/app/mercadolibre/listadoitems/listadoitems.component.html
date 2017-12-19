@@ -1,0 +1,68 @@
+<div class=" card card-container row">
+  
+<h3 class="Titulo">ApiMercadoLibre</h3>
+
+<form [formGroup]="ViajeForm" >
+  
+  <div class="form-group">     
+   
+          <input type="text" formControlName="bus" id="bus" class="form-control" placeholder="Capture el usuario" >
+          <button type="button" class="btn" (click)="buscar()" >Buscar</button>
+ </div>
+ <div class="form-group">     
+  
+         <input type="number" formControlName="ran" id="ran" class="form-control" placeholder="minimo" >
+         <input type="number" formControlName="max" id="max" class="form-control" placeholder="maximo" >
+       
+</div>
+</form>
+<br>
+
+<table class="table table-bordered table-striped tabla" style="margin-top:40px;">
+
+  <thead>
+    <tr class="filters simple">
+     
+        <!-- <th><input  type="text" name="Numero" [(ngModel)]="Buscar.Numero" placeholder="Numero Chasis"><i class="fa fa-search" aria-hidden="true"></i></th> -->
+        
+     
+      <th>PRODUCTO:</th>
+      <th>CALIFICACION</th>
+      <th>PRECIO</th>
+      <th>IMAGEN</th>
+      <th>ENVIO GRATIS</th>
+      <th>Enlace</th>
+      
+      
+  
+
+    </tr>
+
+  </thead>
+  <tbody>
+      <tr *ngFor="let Datas of Data[0]" class="detalle">
+
+          <td>{{Datas.title}}</td>
+          <td>{{Datas.reviews.rating_average}}</td>
+        <td>{{Datas.price}}MXN</td>   
+        <td><img src="{{Datas.thumbnail}}"/></td>
+          <td>{{Datas.shipping.free_shipping}}</td>
+
+        <td>
+           <a class="btn btn-primary"  href="{{Datas.permalink}}">Ir a Comprar</a>
+         
+        </td>
+      
+      </tr>
+    </tbody>
+</table>
+<!-- <div class="alertsuccess" *ngIf="Resultado==false">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    No se puede llevar acabo la transaccion intente mas tarde
+  </div>
+  <div class="alertsuccess" *ngIf="Resultado==true">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+     Registro eliminado correctamente
+    </div> -->
+
+</div>
